@@ -43,7 +43,7 @@
   font-weight: bold;
   animation: glow 1.5s ease-in-out infinite alternate;
 }
-
+/*
 @keyframes glow {
   from {
     text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00, 0 0 20px #00ff00, 0 0 25px #00ff00, 0 0 30px #00ff00, 0 0 35px #00ff00;
@@ -52,8 +52,8 @@
     text-shadow: 0 0 10px #fff, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00, 0 0 50px #00ff00, 0 0 60px #00ff00, 0 0 70px #00ff00;
   }
 }
-
-/* Additional cool effect: Gradient and border animation */
+*/
+/* Additional cool effect: Gradient and border animation *//*
 .navbar-brand {
   background: linear-gradient(45deg, #00ff00, #ff00ff);
   -webkit-background-clip: text;
@@ -74,6 +74,7 @@
     background-position: 0% 50%;
   }
 }
+*/
 
 
     /* NAVBAR START Styles */
@@ -92,7 +93,7 @@
     }
     .navbar-brand:hover,
     .navbar-nav .nav-link:hover {
-      color: #fff !important;
+      color: #000 !important;
       transform: scale(1.05); /* Zoom effect on hover */
       background-color: #00ff00;
       text-decoration: none; /* Remove underline on hover */
