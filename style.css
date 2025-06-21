@@ -99,23 +99,27 @@ img:hover {
 /* LINKS */
 .linkexternal {
   display: inline-block;
-  border: 2px solid yellow;
+  border: 2px solid #ffc107; /* bright yellow for dark bg */
   border-radius: 25px;
   padding: 0.2em 0.6em;
   font-size: 1em;
   margin: 0.5em 0;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  color: #ffc107; /* default text color */
+  background-color: transparent;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
 }
 
 .linkexternal:hover {
   background-color: #ffc107;
-  color: #fff;
-  box-shadow: 0 8px 20px rgba(145, 92, 182, 0.7);
+  color: #000; /* black text on yellow background */
+  box-shadow: 0 8px 20px rgba(255, 193, 7, 0.5); /* yellow glow */
 }
 
 .linkexternal a {
   text-decoration: none;
+  color: inherit; /* inherit from .linkexternal */
 }
+
 
 /* SERVICES + PROJECTS */
 .card {
@@ -130,28 +134,29 @@ img:hover {
   background-color: rgba(50, 50, 90, 0.3) !important;
 }
 
-/* CONTACT FORM */
+
 /* CONTACT FORM */
 .contact-right input,
 .contact-right textarea {
-  background-color: rgba(13, 110, 253, 0.5); /* blue */
+  background-color: rgba(13, 110, 253, 0.2); /* light blue tint */
   color: #0f0;
-  border: 2px solid #0d6efd; /* blue */
+  border: 2px solid #0d6efd;
   margin: 4px;
   font-weight: bold;
 }
 
 .contact-right button {
-  background-color: rgba(13, 110, 253, 0.8); /* blue */
-  border: 2px solid #0d6efd; /* blue */
+  background-color: #0d6efd;
+  border: 2px solid #0d6efd;
   color: #fff;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .contact-right button:hover,
 .contact-right button:focus {
-  background-color: rgba(8, 70, 160, 0.9); /* darker blue */
-  box-shadow: 0 8px 20px rgba(13, 110, 253, 0.7); /* blue glow */
+  background-color: #0b5ed7; /* darker shade of #0d6efd */
+  box-shadow: 0 8px 20px rgba(13, 110, 253, 0.6);
 }
 
 .contact-right input::placeholder,
@@ -163,9 +168,9 @@ img:hover {
 .contact-right textarea:hover,
 .contact-right input:focus,
 .contact-right textarea:focus {
-  background-color: rgba(0, 50, 100, 0.9); /* dark bluish background */
+  background-color: rgba(13, 110, 253, 0.8);
   color: #fff;
-  box-shadow: 0 10px 25px rgba(13, 110, 253, 0.8); /* blue glow */
+  box-shadow: 0 10px 25px rgba(13, 110, 253, 0.7);
 }
 
 
