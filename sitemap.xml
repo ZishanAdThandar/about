@@ -9,178 +9,273 @@
 
 <url>
   <loc>https://zishanadthandar.github.io/</loc>
-  <lastmod>2024-10-07T15:34:12+00:00</lastmod>
+  <lastmod>2025-08-02T05:21:17+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://zishanadthandar.github.io/WriteUps/</loc>
-  <lastmod>2024-09-16T17:45:13+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://zishanadthandar.github.io/service/index.html</loc>
-  <lastmod>2024-10-07T15:34:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://zishanadthandar.github.io/service/</loc>
-  <lastmod>2024-10-07T15:34:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://zishanadthandar.github.io/sponsor/</loc>
-  <lastmod>2024-10-07T15:34:12+00:00</lastmod>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://zishanadthandar.github.io/pentest/</loc>
-  <lastmod>2024-09-30T16:46:22+00:00</lastmod>
+  <lastmod>2025-07-19T09:39:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/hacknotes/</loc>
+  <lastmod>2025-07-31T14:48:48+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://zishanadthandar.github.io/CV.pdf</loc>
-  <lastmod>2024-10-07T15:34:12+00:00</lastmod>
+  <lastmod>2025-08-02T05:21:17+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://zishanadthandar.github.io/linktree/</loc>
-  <lastmod>2024-10-07T15:34:12+00:00</lastmod>
+  <lastmod>2025-08-02T05:21:17+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://zishanadthandar.github.io/WriteUps/bugbounty/1.html</loc>
-  <lastmod>2024-09-16T17:45:13+00:00</lastmod>
+  <loc>https://zishanadthandar.github.io/WriteUps/posts/hackthebox/</loc>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://zishanadthandar.github.io/WriteUps/bugbounty/2.html</loc>
-  <lastmod>2024-09-16T17:45:13+00:00</lastmod>
+  <loc>https://zishanadthandar.github.io/WriteUps/posts/tryhackme/</loc>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://zishanadthandar.github.io/WriteUps/CTF/tryhackme.com/tutorial.html</loc>
-  <lastmod>2024-09-16T17:45:13+00:00</lastmod>
+  <loc>https://zishanadthandar.github.io/WriteUps/posts/offsec/</loc>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://zishanadthandar.github.io/WriteUps/CTF/tryhackme.com/vulnversity.html</loc>
-  <lastmod>2024-09-16T17:45:13+00:00</lastmod>
+  <loc>https://zishanadthandar.github.io/WriteUps/posts/vulnhub/</loc>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://zishanadthandar.github.io/WriteUps/CTF/tryhackme.com/blue.html</loc>
-  <lastmod>2024-09-16T17:45:13+00:00</lastmod>
+  <loc>https://zishanadthandar.github.io/WriteUps/posts/bugbounty/</loc>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://zishanadthandar.github.io/WriteUps/CTF/tryhackme.com/kenobi.html</loc>
-  <lastmod>2024-09-16T17:45:13+00:00</lastmod>
+  <loc>https://zishanadthandar.github.io/sponsor/</loc>
+  <lastmod>2025-08-02T05:21:18+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://zishanadthandar.github.io/WriteUps/CTF/tryhackme.com/dailybugle.html</loc>
-  <lastmod>2024-09-16T17:45:13+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://zishanadthandar.github.io/WriteUps/CTF/tryhackme.com/overpass2hacked.html</loc>
-  <lastmod>2024-09-16T17:45:13+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://zishanadthandar.github.io/WriteUps/CTF/tryhackme.com/attacktivedirectory.html</loc>
-  <lastmod>2024-09-16T17:45:13+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://zishanadthandar.github.io/WriteUps/CTF/tryhackme.com/ffuf.html</loc>
-  <lastmod>2024-09-16T17:45:13+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://zishanadthandar.github.io/WriteUps/CTF/tryhackme.com/owasptop10.html</loc>
-  <lastmod>2024-09-16T17:45:13+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://zishanadthandar.github.io/WriteUps/CTF/tryhackme.com/crackthehash.html</loc>
-  <lastmod>2024-09-16T17:45:13+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://zishanadthandar.github.io/WriteUps/CTF/tryhackme.com/theimpossiblechallenge.html</loc>
-  <lastmod>2024-09-16T17:45:13+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://zishanadthandar.github.io/WriteUps/CTF/vulnhub.com/hacklab-vulnix.html</loc>
-  <lastmod>2024-09-16T17:45:13+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://zishanadthandar.github.io/WriteUps/CTF/vulnhub.com/kioptrix12.html</loc>
-  <lastmod>2024-09-16T17:45:13+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://zishanadthandar.github.io/WriteUps/CTF/vulnhub.com/fristileaks13.html</loc>
-  <lastmod>2024-09-16T17:45:13+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://zishanadthandar.github.io/WriteUps/CTF/vulnhub.com/escalate-my-privileges-1.html</loc>
-  <lastmod>2024-09-16T17:45:13+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://zishanadthandar.github.io/WriteUps/CTF/hackthebox.com/0001lame.html</loc>
-  <lastmod>2024-09-16T17:45:13+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://zishanadthandar.github.io/WriteUps/CTF/hackthebox.com/0002legacy.html</loc>
-  <lastmod>2024-09-16T17:45:13+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://zishanadthandar.github.io/WriteUps/CTF/hackthebox.com/0003devel.html</loc>
-  <lastmod>2024-09-16T17:45:13+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://zishanadthandar.github.io/WriteUps/CTF/hackthebox.com/0004popcorn.html</loc>
-  <lastmod>2024-09-16T17:45:13+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://zishanadthandar.github.io/service/tos.txt</loc>
-  <lastmod>2024-10-07T15:34:12+00:00</lastmod>
+  <loc>https://zishanadthandar.github.io/service/</loc>
+  <lastmod>2025-08-02T05:21:17+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://zishanadthandar.github.io/pentest/notes/TOOLS.html</loc>
-  <lastmod>2024-09-30T16:46:22+00:00</lastmod>
+  <lastmod>2025-07-19T09:39:04+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://zishanadthandar.github.io/pentest/notes/ActiveDirectory.html</loc>
-  <lastmod>2024-09-30T16:46:22+00:00</lastmod>
+  <lastmod>2025-07-19T09:39:04+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://zishanadthandar.github.io/pentest/notes/AllAboutPentesting.html</loc>
-  <lastmod>2024-09-30T16:46:22+00:00</lastmod>
+  <lastmod>2025-07-19T09:39:04+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://zishanadthandar.github.io/pentest/notes/BugBountyHuntingMethodology.html</loc>
-  <lastmod>2024-09-30T16:46:22+00:00</lastmod>
+  <lastmod>2025-07-19T09:39:04+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://zishanadthandar.github.io/pentest/notes/CyberSecurityRoadmap.html</loc>
-  <lastmod>2024-09-30T16:46:22+00:00</lastmod>
+  <lastmod>2025-07-19T09:39:04+00:00</lastmod>
   <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/hacknotes/Machines/</loc>
+  <lastmod>2025-07-31T14:48:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/hacknotes/Machines/Pivoting.html</loc>
+  <lastmod>2025-07-31T14:48:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/hacknotes/Machines/Tunneling.html</loc>
+  <lastmod>2025-07-31T14:48:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/hacknotes/Machines/LinPrivEsc.html</loc>
+  <lastmod>2025-07-31T14:48:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/hacknotes/Machines/WinPrivEsc.html</loc>
+  <lastmod>2025-07-31T14:48:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/hacknotes/Web/</loc>
+  <lastmod>2025-07-31T14:48:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/hacknotes/Web/LogInBypass.html</loc>
+  <lastmod>2025-07-31T14:48:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/hacknotes/Web/SQLInjection.html</loc>
+  <lastmod>2025-07-31T14:48:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/hacknotes/ReverseEngineering/</loc>
+  <lastmod>2025-07-31T14:48:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/hacknotes/BinaryExploitation/</loc>
+  <lastmod>2025-07-31T14:48:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/hacknotes/Job/</loc>
+  <lastmod>2025-07-31T14:48:49+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/WriteUps/posts/hackthebox/devel.html</loc>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/WriteUps/posts/hackthebox/lame.html</loc>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/WriteUps/posts/hackthebox/legacy.html</loc>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/WriteUps/posts/hackthebox/popcorn.html</loc>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/WriteUps/posts/tryhackme/attacktivedirectory.html</loc>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/WriteUps/posts/tryhackme/blue.html</loc>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/WriteUps/posts/tryhackme/crackthehash.html</loc>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/WriteUps/posts/tryhackme/dailybugle.html</loc>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/WriteUps/posts/tryhackme/ffuf.html</loc>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/WriteUps/posts/tryhackme/kenobi.html</loc>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/WriteUps/posts/tryhackme/overpass2hacked.html</loc>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/WriteUps/posts/tryhackme/owasptop10.html</loc>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/WriteUps/posts/tryhackme/relevant.html</loc>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/WriteUps/posts/tryhackme/theimpossiblechallenge.html</loc>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/WriteUps/posts/tryhackme/tutorial.html</loc>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/WriteUps/posts/tryhackme/vulnversity.html</loc>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/WriteUps/posts/offsec/algernon.html</loc>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/WriteUps/posts/offsec/authby.html</loc>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/WriteUps/posts/vulnhub/escalate-my-privileges-1.html</loc>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/WriteUps/posts/vulnhub/fristileaks13.html</loc>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/WriteUps/posts/vulnhub/hacklab-vulnix.html</loc>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/WriteUps/posts/vulnhub/kioptrix12.html</loc>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/WriteUps/posts/bugbounty/1.html</loc>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/WriteUps/posts/bugbounty/2.html</loc>
+  <lastmod>2025-08-02T05:16:11+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zishanadthandar.github.io/service/tos.txt</loc>
+  <lastmod>2025-08-02T05:21:17+00:00</lastmod>
+  <priority>0.51</priority>
 </url>
 
 
