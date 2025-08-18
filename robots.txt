@@ -1,3 +1,4 @@
 User-agent: *
 Disallow: 
 Sitemap: https://zishanadthandar.github.io/sitemap.xml
+Sitemap: https://zishanadthandar.github.io/WriteUps/sitemap.xml
