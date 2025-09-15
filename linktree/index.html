@@ -22,61 +22,16 @@
     }
     .btn-custom {
       background-color: transparent;
-      border: 2px solid;
-    }
-    .btn-custom:hover {
-      transform: scale(1.03);
-    }
-    .btn-outline-primary {
-      border-color: #4ecca3;
+      border: 2px solid #4ecca3;
       color: #4ecca3;
     }
-    .btn-outline-primary:hover {
+    .btn-custom:hover {
       background-color: #4ecca3;
       color: #0b0c10;
-    }
-    .btn-outline-success {
-      border-color: #66fcf1;
-      color: #66fcf1;
-    }
-    .btn-outline-success:hover {
-      background-color: #66fcf1;
-      color: #0b0c10;
-    }
-    .btn-outline-warning {
-      border-color: #f1c40f;
-      color: #f1c40f;
-    }
-    .btn-outline-warning:hover {
-      background-color: #f1c40f;
-      color: #0b0c10;
-    }
-    .btn-outline-danger {
-      border-color: #e74c3c;
-      color: #e74c3c;
-    }
-    .btn-outline-danger:hover {
-      background-color: #e74c3c;
-      color: #fff;
-    }
-    .btn-outline-info {
-      border-color: #3498db;
-      color: #3498db;
-    }
-    .btn-outline-info:hover {
-      background-color: #3498db;
-      color: #fff;
-    }
-    .btn-outline-light {
-      border-color: #bdc3c7;
-      color: #bdc3c7;
-    }
-    .btn-outline-light:hover {
-      background-color: #bdc3c7;
-      color: #0b0c10;
+      transform: scale(1.03);
     }
     .hero-name {
-      color: #66fcf1;
+      color: #4ecca3;
       font-weight: 700;
       font-size: 2.5rem;
     }
@@ -96,7 +51,7 @@
       padding-bottom: 0.3rem;
     }
     a.text-light:hover {
-      color: #66fcf1 !important;
+      color: #4ecca3 !important;
     }
     footer {
       border-top: 1px solid #4ecca3;
@@ -108,6 +63,7 @@
     }
     .social-icons a:hover {
       transform: scale(1.2);
+      color: #4ecca3 !important;
     }
   </style>
 </head>
@@ -117,30 +73,40 @@
     <h1 class="hero-name">Zishan Ahamed Thandar</h1>
     <p class="tagline">Cybersecurity Mentor | Red Team Specialist | Bug Bounty Hunter</p>
 
-    <div class="category">Offerings</div>
+    <!-- eBooks -->
+    <div class="category">eBooks</div>
     <div class="d-grid gap-2">
-      <a href="https://topmate.io/zishanadthandar" class="btn btn-outline-success btn-lg">🧠 1:1 Mentorship</a>
-      <a href="https://topmate.io/zishanadthandar/1523473" class="btn btn-outline-warning btn-lg">📘 Web Security eBook (90% OFF)</a>
-      <a href="https://www.upwork.com/freelancers/~01de193bc6218ab75d" class="btn btn-outline-primary btn-lg">🛡️ Hire Me: Pentesting</a>
-      <a href="https://github.com/sponsors/ZishanAdThandar" class="btn btn-outline-danger btn-lg">❤️ GitHub Sponsor</a>
+      <a href="https://topmate.io/zishanadthandar/1523473" class="btn btn-custom btn-lg">📘 Bug Bounty Web Security Checklist eBook (90% off)</a>
+      <a href="https://topmate.io/zishanadthandar/1729436" class="btn btn-custom btn-lg">📕 OSWP Notes (60% off)</a>
     </div>
 
+    <!-- Services -->
+    <div class="category">Services</div>
+    <div class="d-grid gap-2">
+      <a href="https://topmate.io/zishanadthandar" class="btn btn-custom btn-lg">🧠 1:1 Mentorship</a>
+      <a href="https://www.upwork.com/freelancers/~01de193bc6218ab75d" class="btn btn-custom btn-lg">🛡️ Hire Me: Security Consultancy</a>
+    </div>
+
+    <!-- Projects -->
     <div class="category">Projects & Tools</div>
     <div class="d-grid gap-2">
-      <a href="https://github.com/ZishanAdThandar/WriteUps" class="btn btn-outline-primary btn-lg">📂 Bug Bounty Writeups</a>
-      <a href="https://github.com/ZishanAdThandar/pentest" class="btn btn-outline-primary btn-lg">📖 Pentester Guide</a>
-      <a href="https://github.com/ZishanAdThandar/hackify" class="btn btn-outline-primary btn-lg">🔧 Hackify Toolkit</a>
-      <a href="https://addons.mozilla.org/en-US/firefox/addon/zishanadthandar-cyberterminus/" class="btn btn-outline-light btn-lg">🎨 Firefox Theme</a>
-      <a href="https://github.com/zishanAdThandar/Burptoggle" class="btn btn-outline-light btn-lg">🧩 Burp Proxy Toggle</a>
+      <a href="https://github.com/ZishanAdThandar/WriteUps" class="btn btn-custom btn-lg">📂 Bug Bounty Writeups</a>
+      <a href="https://github.com/ZishanAdThandar/pentest" class="btn btn-custom btn-lg">📖 Pentester Guide</a>
+      <a href="https://github.com/ZishanAdThandar/hackify" class="btn btn-custom btn-lg">🔧 Hackify Toolkit</a>
+      <a href="https://addons.mozilla.org/en-US/firefox/addon/zishanadthandar-cyberterminus/" class="btn btn-custom btn-lg">🎨 Firefox Theme</a>
+      <a href="https://github.com/zishanAdThandar/Burptoggle" class="btn btn-custom btn-lg">🧩 Burp Proxy Toggle</a>
     </div>
 
+    <!-- Community -->
     <div class="category">Community</div>
     <div class="d-grid gap-2">
-      <a href="https://t.me/BugCrowd" class="btn btn-outline-info btn-lg"><i class="fab fa-telegram"></i> Telegram</a>
-      <a href="https://discord.gg/T47v67eVT4" class="btn btn-outline-info btn-lg"><i class="fab fa-discord"></i> Discord</a>
-      <a href="https://chat.whatsapp.com/GR2RD11phmy7mTWlGiALNE" class="btn btn-outline-success btn-lg"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="https://t.me/BugCrowd" class="btn btn-custom btn-lg"><i class="fab fa-telegram"></i> Telegram</a>
+      <a href="https://discord.gg/T47v67eVT4" class="btn btn-custom btn-lg"><i class="fab fa-discord"></i> Discord</a>
+      <a href="https://chat.whatsapp.com/GR2RD11phmy7mTWlGiALNE" class="btn btn-custom btn-lg"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="https://github.com/sponsors/ZishanAdThandar" class="btn btn-custom btn-lg">❤️ GitHub Sponsor</a>
     </div>
 
+    <!-- Social -->
     <div class="category">Social</div>
     <div class="social-icons d-flex justify-content-center gap-4 fs-4 mt-3">
       <a href="https://github.com/ZishanAdThandar" class="text-light"><i class="fab fa-github"></i></a>
