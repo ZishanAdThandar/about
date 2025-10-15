@@ -6,126 +6,605 @@
   <title>Zishan Ahamed Thandar | Cybersecurity Expert</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary-bg: #0a0a0f;
+      --secondary-bg: #12121a;
+      --accent-color: #00ff9d;
+      --accent-hover: #00cc7d;
+      --text-primary: #e0e0e0;
+      --text-secondary: #a0a0b0;
+      --card-bg: #151521;
+      --border-color: #252535;
+    }
+    
     body {
-      background-color: #0b0c10;
-      color: #c5c6c7;
-      font-family: 'Poppins', sans-serif;
+      background-color: var(--primary-bg);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(0, 255, 157, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(0, 255, 157, 0.05) 0%, transparent 20%);
     }
+    
     .container {
-      max-width: 720px;
+      max-width: 600px;
     }
-    .btn-lg {
-      border-radius: 50px;
-      font-weight: 500;
-      transition: all 0.3s ease-in-out;
+    
+    /* Header Section */
+    .header-section {
+      padding: 2rem 0 1.5rem;
+      text-align: center;
+      position: relative;
     }
-    .btn-custom {
-      background-color: transparent;
-      border: 2px solid #4ecca3;
-      color: #4ecca3;
+    
+    .profile-container {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 1.5rem;
     }
-    .btn-custom:hover {
-      background-color: #4ecca3;
-      color: #0b0c10;
-      transform: scale(1.03);
-    }
-    .hero-name {
-      color: #4ecca3;
-      font-weight: 700;
+    
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid var(--accent-color);
+      box-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
+      background: linear-gradient(135deg, #1a1a2a, #2a2a3a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-color);
       font-size: 2.5rem;
     }
+    
+    .online-indicator {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      background-color: var(--accent-color);
+      border-radius: 50%;
+      border: 3px solid var(--primary-bg);
+      box-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+    }
+    
+    .hero-name {
+      color: var(--accent-color);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
+    }
+    
     .tagline {
-      font-size: 1.1rem;
-      color: #9faab5;
-      margin-bottom: 2rem;
-    }
-    .category {
-      color: #4ecca3;
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-top: 3rem;
+      font-size: 1rem;
+      color: var(--text-secondary);
       margin-bottom: 1.5rem;
+      line-height: 1.5;
+      white-space: normal;
+      max-width: 100%;
+      overflow: visible;
+    }
+    
+    .specialty-tags {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .specialty-tag {
+      background: rgba(0, 255, 157, 0.1);
+      color: var(--accent-color);
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      border: 1px solid rgba(0, 255, 157, 0.3);
+    }
+    
+    /* Links Section */
+    .links-section {
+      padding: 0 0 2rem;
+    }
+    
+    .link-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      color: var(--text-primary);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .link-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 255, 157, 0.1), transparent);
+      transition: 0.5s;
+    }
+    
+    .link-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-color);
+      box-shadow: 0 5px 15px rgba(0, 255, 157, 0.2);
+    }
+    
+    .link-card:hover::before {
+      left: 100%;
+    }
+    
+    .link-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: rgba(0, 255, 157, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-color);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    
+    .link-content {
+      flex-grow: 1;
+    }
+    
+    .link-title {
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+      font-size: 1rem;
+    }
+    
+    .link-desc {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-bottom: 0;
+    }
+    
+    .link-arrow {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      transition: transform 0.3s ease;
+    }
+    
+    .link-card:hover .link-arrow {
+      transform: translateX(3px);
+      color: var(--accent-color);
+    }
+    
+    .section-title {
+      color: var(--accent-color);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      margin: 2rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border-color);
       text-transform: uppercase;
-      border-bottom: 1px solid #4ecca3;
-      padding-bottom: 0.3rem;
+      letter-spacing: 1px;
     }
-    a.text-light:hover {
-      color: #4ecca3 !important;
+    
+    /* Social Icons */
+    .social-section {
+      padding: 1.5rem 0;
+      text-align: center;
     }
+    
+    .social-title {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .social-icon {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-primary);
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
+      text-decoration: none;
+    }
+    
+    .social-icon:hover {
+      background: var(--accent-color);
+      color: var(--primary-bg);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 255, 157, 0.3);
+    }
+    
+    /* Footer */
     footer {
-      border-top: 1px solid #4ecca3;
-      margin-top: 4rem;
-      padding-top: 1rem;
+      padding: 2rem 0;
+      text-align: center;
+      border-top: 1px solid var(--border-color);
+      margin-top: 1rem;
     }
-    .social-icons a {
-      transition: transform 0.2s;
+    
+    .footer-text {
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+      margin-bottom: 0.5rem;
     }
-    .social-icons a:hover {
-      transform: scale(1.2);
-      color: #4ecca3 !important;
+    
+    .cyber-text {
+      color: var(--accent-color);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .fade-in {
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    
+    /* Terminal Effect */
+    .terminal-line {
+      position: relative;
+      overflow: hidden;
+      white-space: nowrap;
+      margin: 0 auto;
+      letter-spacing: 0.15em;
+      animation: typing 3.5s steps(40, end);
+    }
+    
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    
+    /* Responsive */
+    @media (max-width: 576px) {
+      .container {
+        padding: 0 1rem;
+      }
+      
+      .hero-name {
+        font-size: 1.5rem;
+      }
+      
+      .profile-img {
+        width: 100px;
+        height: 100px;
+        font-size: 2rem;
+      }
+      
+      .link-card {
+        padding: 0.8rem 1rem;
+      }
+      
+      .tagline {
+        font-size: 0.95rem;
+        padding: 0 0.5rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container text-center mt-5">
-    <img src="https://zishanadthandar.github.io/img/social/htbIcon.png" width="96" class="rounded-circle shadow mb-3" alt="Zishan Logo">
-    <h1 class="hero-name">Zishan Ahamed Thandar</h1>
-    <p class="tagline">Cybersecurity Mentor | Red Team Specialist | Bug Bounty Hunter</p>
-
-    <!-- eBooks -->
-    <div class="category">eBooks</div>
-    <div class="d-grid gap-2">
-      <a href="https://topmate.io/zishanadthandar/1523473" target="_blank" rel="noopener noreferrer" class="btn btn-custom btn-lg">📘 Bug Bounty Web Security Checklist eBook (90% off)</a>
-      <a href="https://topmate.io/zishanadthandar/1729436" target="_blank" rel="noopener noreferrer" class="btn btn-custom btn-lg">📕 OSWP Notes (60% off)</a>
-      <a href="https://topmate.io/zishanadthandar/1734113" target="_blank" rel="noopener noreferrer" class="btn btn-custom btn-lg">📙 CRTA Exam Notes (90% off)</a>
-    </div>
-
-    <!-- Services -->
-    <div class="category">Services</div>
-    <div class="d-grid gap-2">
-      <a href="https://topmate.io/zishanadthandar" target="_blank" rel="noopener noreferrer" class="btn btn-custom btn-lg">🧠 1:1 Mentorship</a>
-      <a href="https://www.upwork.com/freelancers/~01de193bc6218ab75d" target="_blank" rel="noopener noreferrer" class="btn btn-custom btn-lg">🛡️ Hire Me: Security Consultancy</a>
-    </div>
-
-    <!-- Projects -->
-    <div class="category">Projects & Tools</div>
-    <div class="d-grid gap-2">
-      <a href="https://github.com/ZishanAdThandar/WriteUps" target="_blank" rel="noopener noreferrer" class="btn btn-custom btn-lg">📂 Bug Bounty Writeups</a>
-      <a href="https://github.com/ZishanAdThandar/pentest" target="_blank" rel="noopener noreferrer" class="btn btn-custom btn-lg">📖 Pentester Guide</a>
-      <a href="https://github.com/ZishanAdThandar/hackify" target="_blank" rel="noopener noreferrer" class="btn btn-custom btn-lg">🔧 Hackify Toolkit</a>
-      <a href="https://addons.mozilla.org/en-US/firefox/addon/zishanadthandar-cyberterminus/" target="_blank" rel="noopener noreferrer" class="btn btn-custom btn-lg">🎨 Firefox Theme</a>
-      <a href="https://github.com/zishanAdThandar/Burptoggle" target="_blank" rel="noopener noreferrer" class="btn btn-custom btn-lg">🧩 Burp Proxy Toggle</a>
-    </div>
-
-    <!-- Community -->
-    <div class="category">Community</div>
-    <div class="d-grid gap-2">
-      <a href="https://t.me/BugCrowd" target="_blank" rel="noopener noreferrer" class="btn btn-custom btn-lg"><i class="fab fa-telegram"></i> Telegram</a>
-      <a href="https://discord.gg/T47v67eVT4" target="_blank" rel="noopener noreferrer" class="btn btn-custom btn-lg"><i class="fab fa-discord"></i> Discord</a>
-      <a href="https://chat.whatsapp.com/GR2RD11phmy7mTWlGiALNE" target="_blank" rel="noopener noreferrer" class="btn btn-custom btn-lg"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-      <a href="https://github.com/sponsors/ZishanAdThandar" target="_blank" rel="noopener noreferrer" class="btn btn-custom btn-lg">❤️ GitHub Sponsor</a>
-    </div>
-
-    <!-- Social -->
-    <div class="category">Social</div>
-    <div class="social-icons d-flex justify-content-center gap-4 fs-4 mt-3">
-      <a href="https://github.com/ZishanAdThandar" target="_blank" rel="noopener noreferrer" class="text-light"><i class="fab fa-github"></i></a>
-      <a href="https://linkedin.com/in/ZishanAdThandar" target="_blank" rel="noopener noreferrer" class="text-light"><i class="fab fa-linkedin"></i></a>
-      <a href="https://twitter.com/ZishanAdThandar" target="_blank" rel="noopener noreferrer" class="text-light"><i class="fab fa-twitter"></i></a>
-      <a href="https://youtube.com/ZishanAdThandar" target="_blank" rel="noopener noreferrer" class="text-light"><i class="fab fa-youtube"></i></a>
-      <a href="https://app.hackthebox.com/profile/4477" target="_blank" rel="noopener noreferrer" class="text-light"><i class="fas fa-cube"></i></a>
-      <a href="https://tryhackme.com/p/ZishanAdThandar" target="_blank" rel="noopener noreferrer" class="text-light"><i class="fas fa-terminal"></i></a>
-      <a href="https://scholar.google.com/citations?user=aFkf8jwAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="text-light"><i class="fas fa-graduation-cap"></i></a>
-    </div>
-
-    <footer class="text-center text-muted mt-5">
-      <p class="mb-0">&copy; 2025 Zishan Ahamed Thandar</p>
-      <small>Crafted for the cyber world.</small>
+  <div class="container">
+    <!-- Header Section -->
+    <section class="header-section">
+      <div class="profile-container">
+        <div class="profile-img">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <div class="online-indicator"></div>
+      </div>
+      
+      <h1 class="hero-name">ZISHAN AHAMED THANDAR</h1>
+      <p class="tagline">Cybersecurity Mentor | Red Team Specialist | Bug Bounty Hunter</p>
+      
+      <div class="specialty-tags">
+        <span class="specialty-tag">Penetration Testing</span>
+        <span class="specialty-tag">Vulnerability Research</span>
+        <span class="specialty-tag">Security Training</span>
+      </div>
+    </section>
+    
+    <!-- Links Section -->
+    <section class="links-section">
+      <h3 class="section-title">eBooks & Resources</h3>
+      
+      <a href="https://topmate.io/zishanadthandar/1523473" target="_blank" rel="noopener noreferrer" class="link-card fade-in">
+        <div class="link-icon">
+          <i class="fas fa-book"></i>
+        </div>
+        <div class="link-content">
+          <div class="link-title">Bug Bounty Web Security Checklist</div>
+          <div class="link-desc">Comprehensive guide with 90% discount</div>
+        </div>
+        <div class="link-arrow">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </a>
+      
+      <a href="https://topmate.io/zishanadthandar/1729436" target="_blank" rel="noopener noreferrer" class="link-card fade-in">
+        <div class="link-icon">
+          <i class="fas fa-file-alt"></i>
+        </div>
+        <div class="link-content">
+          <div class="link-title">OSWP Notes</div>
+          <div class="link-desc">Detailed notes with 60% discount</div>
+        </div>
+        <div class="link-arrow">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </a>
+      
+      <a href="https://topmate.io/zishanadthandar/1734113" target="_blank" rel="noopener noreferrer" class="link-card fade-in">
+        <div class="link-icon">
+          <i class="fas fa-sticky-note"></i>
+        </div>
+        <div class="link-content">
+          <div class="link-title">CRTA Exam Notes</div>
+          <div class="link-desc">Exam preparation notes with 90% discount</div>
+        </div>
+        <div class="link-arrow">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </a>
+      
+      <h3 class="section-title">Services</h3>
+      
+      <a href="https://topmate.io/zishanadthandar" target="_blank" rel="noopener noreferrer" class="link-card fade-in">
+        <div class="link-icon">
+          <i class="fas fa-user-graduate"></i>
+        </div>
+        <div class="link-content">
+          <div class="link-title">1:1 Cybersecurity Mentorship</div>
+          <div class="link-desc">Personalized training and guidance sessions</div>
+        </div>
+        <div class="link-arrow">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </a>
+      
+      <a href="https://www.upwork.com/freelancers/~01de193bc6218ab75d" target="_blank" rel="noopener noreferrer" class="link-card fade-in">
+        <div class="link-icon">
+          <i class="fas fa-briefcase"></i>
+        </div>
+        <div class="link-content">
+          <div class="link-title">Security Consultancy</div>
+          <div class="link-desc">Professional security services for organizations</div>
+        </div>
+        <div class="link-arrow">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </a>
+      
+      <h3 class="section-title">Projects & Tools</h3>
+      
+      <a href="https://github.com/ZishanAdThandar/WriteUps" target="_blank" rel="noopener noreferrer" class="link-card fade-in">
+        <div class="link-icon">
+          <i class="fas fa-folder-open"></i>
+        </div>
+        <div class="link-content">
+          <div class="link-title">Bug Bounty Writeups</div>
+          <div class="link-desc">Collection of detailed bug bounty reports</div>
+        </div>
+        <div class="link-arrow">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </a>
+      
+      <a href="https://github.com/ZishanAdThandar/pentest" target="_blank" rel="noopener noreferrer" class="link-card fade-in">
+        <div class="link-icon">
+          <i class="fas fa-book"></i>
+        </div>
+        <div class="link-content">
+          <div class="link-title">Pentester Guide</div>
+          <div class="link-desc">Comprehensive penetration testing guide</div>
+        </div>
+        <div class="link-arrow">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </a>
+      
+      <a href="https://github.com/ZishanAdThandar/hackify" target="_blank" rel="noopener noreferrer" class="link-card fade-in">
+        <div class="link-icon">
+          <i class="fas fa-tools"></i>
+        </div>
+        <div class="link-content">
+          <div class="link-title">Hackify Toolkit</div>
+          <div class="link-desc">Collection of cybersecurity tools and utilities</div>
+        </div>
+        <div class="link-arrow">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </a>
+      
+      <a href="https://addons.mozilla.org/en-US/firefox/addon/zishanadthandar-cyberterminus/" target="_blank" rel="noopener noreferrer" class="link-card fade-in">
+        <div class="link-icon">
+          <i class="fas fa-palette"></i>
+        </div>
+        <div class="link-content">
+          <div class="link-title">Firefox Theme</div>
+          <div class="link-desc">Custom cybersecurity-themed browser theme</div>
+        </div>
+        <div class="link-arrow">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </a>
+      
+      <a href="https://github.com/zishanAdThandar/Burptoggle" target="_blank" rel="noopener noreferrer" class="link-card fade-in">
+        <div class="link-icon">
+          <i class="fas fa-puzzle-piece"></i>
+        </div>
+        <div class="link-content">
+          <div class="link-title">Burp Proxy Toggle</div>
+          <div class="link-desc">Burp Suite extension for easy proxy toggling</div>
+        </div>
+        <div class="link-arrow">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </a>
+      
+      <h3 class="section-title">Community</h3>
+      
+      <a href="https://t.me/BugCrowd" target="_blank" rel="noopener noreferrer" class="link-card fade-in">
+        <div class="link-icon">
+          <i class="fab fa-telegram"></i>
+        </div>
+        <div class="link-content">
+          <div class="link-title">Telegram Group</div>
+          <div class="link-desc">Join our cybersecurity community</div>
+        </div>
+        <div class="link-arrow">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </a>
+      
+      <a href="https://discord.gg/T47v67eVT4" target="_blank" rel="noopener noreferrer" class="link-card fade-in">
+        <div class="link-icon">
+          <i class="fab fa-discord"></i>
+        </div>
+        <div class="link-content">
+          <div class="link-title">Discord Server</div>
+          <div class="link-desc">Connect with cybersecurity enthusiasts</div>
+        </div>
+        <div class="link-arrow">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </a>
+      
+      <a href="https://chat.whatsapp.com/GR2RD11phmy7mTWlGiALNE" target="_blank" rel="noopener noreferrer" class="link-card fade-in">
+        <div class="link-icon">
+          <i class="fab fa-whatsapp"></i>
+        </div>
+        <div class="link-content">
+          <div class="link-title">WhatsApp Group</div>
+          <div class="link-desc">Join our cybersecurity community</div>
+        </div>
+        <div class="link-arrow">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </a>
+      
+      <a href="https://github.com/sponsors/ZishanAdThandar" target="_blank" rel="noopener noreferrer" class="link-card fade-in">
+        <div class="link-icon">
+          <i class="fas fa-heart"></i>
+        </div>
+        <div class="link-content">
+          <div class="link-title">GitHub Sponsor</div>
+          <div class="link-desc">Support my open-source cybersecurity projects</div>
+        </div>
+        <div class="link-arrow">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </a>
+    </section>
+    
+    <!-- Social Section -->
+    <section class="social-section">
+      <div class="social-title">Connect With Me</div>
+      <div class="social-icons">
+        <a href="https://github.com/ZishanAdThandar" target="_blank" rel="noopener noreferrer" class="social-icon">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/ZishanAdThandar" target="_blank" rel="noopener noreferrer" class="social-icon">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://twitter.com/ZishanAdThandar" target="_blank" rel="noopener noreferrer" class="social-icon">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://youtube.com/ZishanAdThandar" target="_blank" rel="noopener noreferrer" class="social-icon">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://app.hackthebox.com/profile/4477" target="_blank" rel="noopener noreferrer" class="social-icon">
+          <i class="fas fa-cube"></i>
+        </a>
+        <a href="https://tryhackme.com/p/ZishanAdThandar" target="_blank" rel="noopener noreferrer" class="social-icon">
+          <i class="fas fa-cloud"></i>
+        </a>
+        <a href="https://scholar.google.com/citations?user=aFkf8jwAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="social-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </a>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+      <p class="footer-text">&copy; 2025 Zishan Ahamed Thandar</p>
+      <p class="cyber-text">CRAFTED FOR THE CYBER WORLD</p>
     </footer>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Simple animation on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const fadeElements = document.querySelectorAll('.fade-in');
+      
+      const fadeInOnScroll = function() {
+        fadeElements.forEach(element => {
+          const elementTop = element.getBoundingClientRect().top;
+          const elementVisible = 150;
+          
+          if (elementTop < window.innerHeight - elementVisible) {
+            element.style.opacity = 1;
+            element.style.transform = 'translateY(0)';
+          }
+        });
+      };
+      
+      // Set initial state
+      fadeElements.forEach(element => {
+        element.style.opacity = 0;
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      });
+      
+      // Check on load
+      fadeInOnScroll();
+      
+      // Check on scroll
+      window.addEventListener('scroll', fadeInOnScroll);
+    });
+  </script>
 </body>
 </html>
-
