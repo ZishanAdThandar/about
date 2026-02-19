@@ -1,4 +1,4 @@
-/* assets/css/about.css - Professional Version with Fixes */
+/* assets/css/style.css - FINAL VERSION with Inter font (matching main site) */
 
 /* Main site color variables */
 :root {
@@ -31,17 +31,16 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px; /* Accounts for fixed navbar */
+  scroll-padding-top: 80px;
 }
 
-/* Professional font sizes - Standard readable sizes */
+/* ===== FIXED: Using Inter font (main site) ===== */
 body {
-  font-family: "Inter", "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
   background-color: var(--darker);
   color: var(--light);
   position: relative;
@@ -49,34 +48,35 @@ body {
   overflow-x: hidden;
 }
 
-/* Typography - Professional sizes */
+/* Typography - Main site weights */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
 h1 {
   font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  font-weight: 800;
   margin-bottom: 1rem;
 }
 
 h2 {
   font-size: 2rem;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  font-weight: 800;
   margin-bottom: 1rem;
 }
 
 h3 {
   font-size: 1.5rem;
-  font-weight: 600;
-  line-height: 1.3;
+  font-weight: 700;
   margin-bottom: 0.75rem;
 }
 
 p {
   font-size: 1rem;
-  line-height: 1.6;
-  color: #d1d5db;
+  line-height: 1.7;
+  color: var(--gray);
   margin-bottom: 1rem;
 }
 
@@ -106,10 +106,10 @@ section {
   scroll-margin-top: 80px;
 }
 
-/* FIX: Remove gap at top - navbar flush with screen top */
+/* Navbar */
 .navbar {
   position: fixed;
-  top: 0; /* Changed from 46px to 0 */
+  top: 0;
   left: 0;
   right: 0;
   background: rgba(15, 23, 42, 0.95);
@@ -121,9 +121,9 @@ section {
   z-index: 1000;
 }
 
-/* FIX: First section padding adjusted for navbar only (no trust bar) */
+/* First section padding */
 section:first-of-type {
-  padding-top: calc(6rem + 80px); /* Adjusted for navbar height only */
+  padding-top: calc(4rem + 80px);
 }
 
 /* Remove trust bar if it exists */
@@ -131,9 +131,9 @@ section:first-of-type {
   display: none;
 }
 
-/* Navbar brand */
+/* Navbar brand - Poppins only for logo */
 .navbar-brand {
-  font-weight: 700;
+  font-weight: 800;
   color: white !important;
   font-size: 1.5rem;
   font-family: 'Poppins', sans-serif;
@@ -158,11 +158,13 @@ section:first-of-type {
 .navbar-nav .nav-link {
   color: var(--gray) !important;
   font-size: 0.95rem;
-  font-weight: 500;
+  font-weight: 600;
   margin-left: 1.5rem;
   padding: 0.5rem 0;
   position: relative;
   transition: color 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .navbar-nav .nav-link:hover {
@@ -172,7 +174,7 @@ section:first-of-type {
 .navbar-nav .nav-link::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -5px;
   left: 0;
   width: 0;
   height: 2px;
@@ -211,27 +213,40 @@ section:first-of-type {
   background: var(--gradient);
 }
 
+.hero-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
 .hero-kicker {
   font-size: 0.9rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 1px;
   color: var(--primary);
   margin-bottom: 1rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .hero-title {
   font-size: 2.5rem;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 1rem;
   color: white;
 }
 
 .hero-subtitle {
-  font-size: 1.1rem;
-  color: #d1d5db;
+  font-size: 1rem;
+  color: var(--gray);
   margin-bottom: 1.5rem;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .hero-highlight {
@@ -357,9 +372,25 @@ section:first-of-type {
   border-bottom: 1px solid var(--border);
 }
 
+.section-header::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background: var(--gradient);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.section-header:hover::after {
+  width: 120px;
+}
+
 .section-title {
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 800;
   color: white;
   display: flex;
   align-items: center;
@@ -382,7 +413,7 @@ section:first-of-type {
   border: 1px solid var(--border);
 }
 
-/* Cards */
+/* Cards - Base Style */
 .card-premium {
   background: rgba(15, 23, 42, 0.8);
   backdrop-filter: blur(10px);
@@ -392,6 +423,8 @@ section:first-of-type {
   padding: 1.5rem;
   height: 100%;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .card-premium:hover {
@@ -404,14 +437,35 @@ section:first-of-type {
   font-size: 1.25rem;
   margin-bottom: 0.75rem;
   color: white;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .card-premium p {
   font-size: 0.95rem;
-  color: #d1d5db;
+  color: var(--gray);
   margin-bottom: 1rem;
-  line-height: 1.6;
+  line-height: 1.7;
+}
+
+/* Card Links */
+.card-links {
+  margin-top: 1rem;
+}
+
+.card-links a {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: all 0.3s ease;
+}
+
+.card-links a:hover {
+  text-decoration: underline;
+  transform: translateX(3px);
 }
 
 /* Badges */
@@ -469,10 +523,7 @@ section:first-of-type {
   transform: translateX(4px);
 }
 
-/* Testimonials - FIXED alignment */
-/* assets/css/style.css - Updated Testimonials Section */
-
-/* ===== TESTIMONIALS - Main site design WITH about page card style ===== */
+/* ===== TESTIMONIALS ===== */
 .testimonials-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -480,7 +531,7 @@ section:first-of-type {
   margin-top: 2rem;
 }
 
-/* Use the same card-premium style as other about page cards */
+/* Testimonial cards */
 .testimonials-grid .card-premium {
   background: rgba(15, 23, 42, 0.8);
   backdrop-filter: blur(10px);
@@ -502,7 +553,7 @@ section:first-of-type {
   box-shadow: var(--shadow-lg);
 }
 
-/* Quote mark decoration - main site style */
+/* Quote mark */
 .testimonials-grid .card-premium::before {
   content: '"';
   position: absolute;
@@ -517,7 +568,7 @@ section:first-of-type {
   z-index: 0;
 }
 
-/* Stars - main site style */
+/* Stars */
 .testimonial-stars {
   color: #ffd700;
   font-size: 0.9rem;
@@ -530,23 +581,22 @@ section:first-of-type {
 
 .testimonial-stars i {
   color: #ffd700;
-  filter: drop-shadow(0 0 2px rgba(255, 215, 0, 0.3));
 }
 
 /* Quote text */
 .testimonial-quote {
-  font-size: 0.95rem;
-  color: #e5e7eb;
+  font-size: 0.9rem;
+  color: var(--light);
   margin-bottom: 1.25rem;
   font-style: italic;
-  line-height: 1.6;
+  line-height: 1.7;
   position: relative;
   z-index: 1;
   flex: 1;
   padding-right: 1rem;
 }
 
-/* Author section - main site style */
+/* Author section */
 .testimonial-author {
   margin-top: auto;
   padding-top: 1rem;
@@ -568,7 +618,6 @@ section:first-of-type {
   line-height: 1.4;
 }
 
-/* If you have links in testimonials */
 .author-title a {
   color: var(--primary);
   text-decoration: none;
@@ -591,24 +640,6 @@ section:first-of-type {
 
 .author-title a:hover i {
   opacity: 1;
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-  .testimonials-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .testimonials-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .testimonials-grid .card-premium {
-    padding: 1.25rem;
-  }
 }
 
 /* Footer */
@@ -717,7 +748,7 @@ footer p {
   }
   
   section:first-of-type {
-    padding-top: calc(4rem + 70px);
+    padding-top: calc(3.5rem + 70px);
   }
   
   .navbar {
@@ -737,7 +768,7 @@ footer p {
   }
   
   .hero-subtitle {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
   
   .section-header {
@@ -817,6 +848,24 @@ footer p {
     padding: 0.3rem 0.8rem;
   }
   
+  .hero-cta {
+    gap: 0.5rem;
+  }
+  
+  .btn-primary-custom,
+  .btn-secondary-custom {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .testimonial-stars {
+    font-size: 0.8rem;
+  }
+  
+  .testimonial-quote {
+    font-size: 0.85rem;
+  }
+  
   .scroll-top-btn {
     bottom: 1rem;
     right: 1rem;
@@ -851,5 +900,15 @@ footer p {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  
+  .card-premium:hover,
+  .btn-primary-custom:hover,
+  .btn-secondary-custom:hover {
+    transform: none;
+  }
+  
+  .section-header:hover::after {
+    width: 80px;
   }
 }
