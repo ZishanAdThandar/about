@@ -74,8 +74,8 @@ h3 {
 }
 
 p {
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 1.02rem;
+  line-height: 1.8;
   color: var(--gray);
   margin-bottom: 1rem;
 }
@@ -126,12 +126,28 @@ section:first-of-type {
   padding-top: calc(4rem + 80px);
 }
 
-/* Remove trust bar if it exists */
-.trust-bar {
-  display: none;
-}
 
 /* Navbar brand - Poppins only for logo */
+.logo-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+
+    color: #ffffff;
+}
+
+.logo-accent {
+    background: linear-gradient(
+        135deg,
+        #6366f1,
+        #8b5cf6
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
 .navbar-brand {
   font-weight: 800;
   color: white !important;
@@ -147,13 +163,10 @@ section:first-of-type {
   font-size: 1.8rem;
 }
 
-.navbar-brand span {
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.navbar-brand > .logo-text {
+    background: none;
+    color: white;
 }
-
 /* Navbar links */
 .navbar-nav .nav-link {
   color: var(--gray) !important;
@@ -289,7 +302,7 @@ section:first-of-type {
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
   font-size: 0.95rem;
-  box-shadow: var(--shadow);
+  box-shadow: 0 10px 30px rgba(99,102,241,0.22);
   transition: all 0.3s ease;
   text-decoration: none;
   display: inline-flex;
@@ -369,19 +382,20 @@ section:first-of-type {
   gap: 1rem;
   position: relative;
   padding-bottom: 1rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: none;
 }
 
 .section-header::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 80px;
-  height: 3px;
-  background: var(--gradient);
-  border-radius: 2px;
-  transition: width 0.3s ease;
+    width: 56px;
+    height: 4px;
+
+    background: linear-gradient(
+        90deg,
+        #6366f1,
+        transparent
+    );
+
+    border-radius: 999px;
 }
 
 .section-header:hover::after {
