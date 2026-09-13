@@ -546,168 +546,99 @@
   }
 
   /* ============================================================
-     PDF GENERATION (jsPDF)
+     PDF GENERATION (pdfmake)
   ============================================================ */
   function genPDF(model) {
-    return loadLib('https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js').then(function () {
-      var d = model;
-      var jsPDF = window.jspdf.jsPDF;
-      var doc = new jsPDF({ unit: 'pt', format: 'a4' });
-      var W = doc.internal.pageSize.getWidth(), H = doc.internal.pageSize.getHeight();
-      var M = 46;
-
-      function wordify(rs) {
-        var out = [];
-        rs.forEach(function (r) {
-          String(r.t).split(/(\s+)/).forEach(function (p) {
-            if (!p) return;
-            out.push({ t: p, b: !!r.b, i: !!r.i, url: r.url || '' });
+    return loadLib('https://cdn.jsdelivr.net/npm/pdfmake@0.2.9/build/pdfmake.min.js').then(function () {
+      return loadLib('https://cdn.jsdelivr.net/npm/pdfmake@0.2.9/build/vfs_fonts.js').then(function () {
+        var d = model;
+        var PM = window.pdfMake;
+        if (!PM || !PM.vfs) throw new Error('pdfmake failed to load');
+        function inl(md) {
+          return runs(md || '').filter(function (r) { return r.t && r.t.replace(/\s+/g, ''); }).map(function (r) {
+            var x = { text: r.t };
+            if (r.b) x.bold = true;
+            if (r.i) x.italics = true;
+            if (r.url) x.link = r.url;
+            return x;
           });
-        });
-        return out;
-      }
-      function drawRuns(rsIn, opts) {
-        opts = opts || {};
-        var size = opts.size || 10;
-        var lnH = opts.lineHeight || Math.round(size * 1.35);
-        var indent = opts.indent || 0;
-        var x0 = opts.x, width = opts.width;
-        var rs = wordify(rsIn).map(function (r) {
-          return { t: r.t, b: !!r.b || !!opts.bold, i: !!r.i || !!opts.italic, url: r.url || '' };
-        });
-        var y0 = (opts.y == null ? y : opts.y);
-        var line = [], lineW = 0, lineNo = 0;
-        function flush() {
-          if (!line.length) return;
-          var cy = y0;
-          if (cy + size > H - M) { doc.addPage(); cy = M; }
-          var cx = opts.center ? (W - lineW) / 2 : x0 + (lineNo > 0 ? indent : 0);
-          line.forEach(function (rn) {
-            doc.setFont('helvetica', rn.b ? 'bold' : (rn.i ? 'italic' : 'normal'));
-            doc.setFontSize(size);
-            if (rn.url) doc.setTextColor(45, 78, 190);
-            else doc.setTextColor.apply(doc, opts.color || [40, 40, 40]);
-            doc.text(rn.t, cx, cy);
-            var w = doc.getTextWidth(rn.t);
-            if (rn.url) doc.link(cx, cy - size - 1, w, size + 3, { url: rn.url });
-            cx += w;
-          });
-          if (opts.onLine) opts.onLine(cy, lineNo);
-          y0 = cy + lnH;
-          lineNo++; line = []; lineW = 0;
         }
-        rs.forEach(function (rn) {
-          doc.setFont('helvetica', rn.b ? 'bold' : (rn.i ? 'italic' : 'normal'));
-          doc.setFontSize(size);
-          var w = doc.getTextWidth(rn.t);
-          if (lineW + w > width && line.length) flush();
-          line.push(rn); lineW += w;
-        });
-        flush();
-        return y0;
-      }
-      function wrapLines(rs, size, width) {
-        var lines = 1, w = 0;
-        wordify(rs).forEach(function (r) {
-          doc.setFont('helvetica', r.b ? 'bold' : 'normal');
-          doc.setFontSize(size);
-          var cw = doc.getTextWidth(r.t);
-          if (w + cw > width && w > 0) { lines++; w = cw; } else w += cw;
-        });
-        return lines;
-      }
-      function forceRuns(runList, o) {
-        o = o || {};
-        return runList.map(function (r) {
-          return { t: r.t, b: o.b ? true : !!r.b, i: o.i ? true : !!r.i, url: r.url || '' };
-        });
-      }
-      var y = M + 12;
-
-      /* header */
-      y = drawRuns([{ t: d.header.name, b: true }],
-        { x: M, y: y, width: W - 2 * M, size: 17, lineHeight: 21, center: true, color: [17, 24, 39] });
-      y = drawRuns([{ t: d.header.role, b: true }],
-        { x: M, y: y, width: W - 2 * M, size: 11, lineHeight: 15, center: true, color: [79, 70, 229] });
-      var cRuns = [];
-      d.header.contacts.forEach(function (c, i) {
-        if (i > 0) cRuns.push({ t: '  |  ' });
-        cRuns.push({ t: c.text, url: c.url || '' });
-      });
-      y = drawRuns(cRuns, { x: M, y: y, width: W - 2 * M, size: 9, lineHeight: 12, center: true, color: [107, 114, 128] });
-      y += 6;
-      doc.setDrawColor(190, 192, 198); doc.setLineWidth(0.8);
-      doc.line(M, y, W - M, y);
-      y += 8;
-
-      /* sections */
-      d.sections.forEach(function (s) {
-        if (y + 34 > H - M) { doc.addPage(); y = M; }
-        y = drawRuns([{ t: s.title.toUpperCase(), b: true }],
-          { x: M, y: y, width: W - 2 * M, size: 11.6, lineHeight: 17, color: [30, 41, 59] });
-        var ruleY = y - 6;
-        doc.setDrawColor(224, 226, 231); doc.setLineWidth(0.6);
-        doc.line(M, ruleY, W - M, ruleY);
-
-        s.blocks.forEach(function (b) {
-          if (b.type === 'p') {
-            y = drawRuns(runs(b.md),
-              { x: M, y: y, width: W - 2 * M, size: 10, lineHeight: 13, color: [60, 64, 68] });
-            y += 2;
-          } else if (b.type === 'bullets') {
-            b.items.forEach(function (it) {
-              y = drawRuns([{ t: '•  ' }].concat(forceRuns(runs(it))),
-                { x: M, y: y, width: W - 2 * M - 8, size: 10, lineHeight: 12.5, indent: 12, color: [55, 60, 66] });
-            });
-          } else if (b.type === 'entry' || b.type === 'project') {
-            var rightText = b.dates || b.tech;
-            y = drawRuns(forceRuns(runs(b.title), { b: true }), {
-              x: M, y: y, width: W - 2 * M - (rightText ? 135 : 0),
-              size: 10.4, lineHeight: 13.6, color: [20, 30, 50],
-              onLine: function (cy, idx) {
-                if (idx === 0 && rightText) {
-                  doc.setFont('helvetica', 'italic'); doc.setFontSize(9.4);
-                  doc.setTextColor(107, 114, 128);
-                  doc.text(rightText, W - M, cy, { align: 'right', maxWidth: 120 });
-                }
+        function ulOf(items, opt) {
+          return {
+            ul: items.map(function (it) { return { stack: inl(it) }; }),
+            fontSize: opt.size, color: opt.color, lineHeight: opt.lh,
+            markerColor: '6B7280', margin: opt.margin
+          };
+        }
+        var content = [];
+        content.push({ stack: [
+          { text: d.header.name, fontSize: 15.2, bold: true, color: '111827', alignment: 'center', margin: [0, 0, 0, 1] },
+          d.header.role ? { text: d.header.role, fontSize: 9.4, bold: true, color: '4F46E5', alignment: 'center', margin: [0, 1, 0, 3] } : null
+        ].filter(Boolean) });
+        if (d.header.contacts.length) {
+          var cks = [];
+          d.header.contacts.forEach(function (c, i) {
+            if (i > 0) cks.push({ text: '   |   ', color: '9CA3AF', fontSize: 7.4 });
+            cks.push({ text: c.text, link: c.url || 'mailto:' + c.text, color: '6B7280', fontSize: 7.4 });
+          });
+          content.push({ stack: cks, alignment: 'center', margin: [0, 1, 0, 3] });
+        }
+        content.push({ canvas: [{ type: 'line', x1: 0, y1: 0, x2: 511, y2: 0, lineWidth: 0.6, lineColor: 'D1D5DB' }], margin: [0, 2, 0, 4] });
+        d.sections.forEach(function (s) {
+          content.push({
+            text: s.title.toUpperCase(),
+            headlineLevel: 1,
+            fontSize: 9.5, bold: true, color: '1E293B',
+            characterSpacing: 0.3,
+            margin: [0, 2.5, 0, 0.8]
+          });
+          s.blocks.forEach(function (b) {
+            if (b.type === 'p') {
+              content.push({ stack: inl(b.md), fontSize: 8.4, color: '3C4046', lineHeight: 1.12, margin: [0, 0.2, 0, 1] });
+            } else if (b.type === 'bullets') {
+              content.push(ulOf(b.items, { size: 8.4, color: '3C4046', lh: 1.12, margin: [0, 0.2, 0, 1] }));
+            } else if (b.type === 'entry' || b.type === 'project') {
+              var right = b.dates || b.tech;
+              var titleRuns = inl(b.title).map(function (t) { t.bold = true; return t; });
+              content.push({ unbreakable: true, columns: [
+                { text: titleRuns, fontSize: 8.9, color: '141E32' },
+                right ? { text: right, fontSize: 8.0, italics: true, color: '6B7280', alignment: 'right', noWrap: true } : { text: '' }
+              ], columnGap: 6, margin: [0, 1, 0, 0] });
+              if (b.org || b.detail) {
+                var sub = inl(b.org);
+                if (b.detail) sub.push({ text: '  ' + b.detail, italics: true, color: '6B7280' });
+                content.push({ stack: sub, fontSize: 8.0, color: '6B7280', margin: [0, 0.4, 0, 0] });
               }
-            });
-            if (b.org || b.detail) {
-              y = drawRuns([{ t: plainText(b.org) + (b.detail ? '  ' + plainText(b.detail) : ''), i: true }],
-                { x: M, y: y, width: W - 2 * M, size: 9.7, lineHeight: 12.5, color: [88, 94, 104] });
-            }
-            b.items.forEach(function (it) {
-              y = drawRuns([{ t: '•  ' }].concat(forceRuns(runs(it))),
-                { x: M, y: y, width: W - 2 * M - 8, size: 10, lineHeight: 12.5, indent: 12, color: [55, 60, 66] });
-            });
-          } else if (b.type === 'table') {
-            var colW = (W - 2 * M) / b.rows[0].length;
-            var prep = b.rows.map(function (row) {
-              return row.map(function (cell) { return forceRuns(runs(cell)); });
-            });
-            function rowHeight(cells) {
-              var n = 1;
-              cells.forEach(function (crs) { n = Math.max(n, wrapLines(crs, 9.6, colW - 6)); });
-              return n * 12.3 + 3;
-            }
-            prep.forEach(function (cells) {
-              var rh = rowHeight(cells);
-              if (y + rh > H - M) { doc.addPage(); y = M; }
-              cells.forEach(function (crs, ci) {
-                drawRuns(crs, { x: M + ci * colW + 2, y: y, width: colW - 6, size: 9.6, lineHeight: 12.3, color: [55, 58, 66] });
+              if (b.items && b.items.length) content.push(ulOf(b.items, { size: 8.4, color: '3C4046', lh: 1.12, margin: [0, 0.2, 0, 1] }));
+            } else if (b.type === 'table') {
+              var body = b.rows.map(function (row, ri) {
+                return row.map(function (cell) {
+                  return { text: inl(cell), bold: ri === 0, fontSize: 8.4, color: '374151', margin: [0, 0.4, 0, 0.4] };
+                });
               });
-              y += rh;
-            });
-            y += 2;
-          }
+              content.push({ table: { widths: b.rows[0].map(function () { return '*'; }), body: body }, layout: 'noBorders', margin: [0, 0.5, 0, 1] });
+            }
+          });
         });
-        y += 4;
+        var dd = {
+          pageSize: 'A4',
+          pageMargins: [42, 21, 42, 21],
+          defaultStyle: { font: 'Roboto' },
+          content: content,
+          pageBreakBefore: function (cur, fol) { return cur.headlineLevel && fol.length === 0; }
+        };
+        return new Promise(function (resolve, reject) {
+          var vp;
+          try { vp = PM.createPdf(dd); } catch (e) { reject(e); return; }
+          vp.getBlob(function (blob) {
+            saveBlob(blob, 'Zishan-Ahamed-Thandar-Resume.pdf');
+            resolve();
+          });
+        });
       });
-      saveBlob(doc.output('blob'), 'Zishan-Ahamed-Thandar-Resume.pdf');
     });
   }
-
-  /* ============================================================
+/* ============================================================
      DOCX GENERATION (docx)
   ============================================================ */
   function genDOCX(data) {
