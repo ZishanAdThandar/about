@@ -563,7 +563,9 @@
         };
         function inl(md) {
           return spaced(runs(md || '')).filter(function (r) { return r.t; }).map(function (r) {
-            var x = { text: r.t };
+            var t = r.t;
+            if (r.url) t = t.replace(/\s+/g, '\u00A0');
+            var x = { text: t };
             if (r.b) x.bold = true;
             if (r.i) x.italics = true;
             if (r.url) x.link = r.url;
