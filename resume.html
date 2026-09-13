@@ -540,108 +540,143 @@
       var jsPDF = window.jspdf.jsPDF;
       var doc = new jsPDF({ unit: 'pt', format: 'a4' });
       var W = doc.internal.pageSize.getWidth(), H = doc.internal.pageSize.getHeight();
-      var M = 46, y = M, lh = 12.5;
+      var M = 46;
 
-      function room(w) { if (y > H - M - w) { doc.addPage(); y = M; } }
-      function para(md, o) {
-        o = o || {};
-        var txt = plainText(md);
-        var style = o.bold ? 'bold' : (o.italic ? 'italic' : 'normal');
-        doc.setFont('helvetica', style);
-        doc.setFontSize(o.size || 10);
-        if (o.color) doc.setTextColor.apply(doc, o.color);
-        if (o.right) {
-          doc.text(txt, W - M, y + 4, { align: 'right' });
-          y += (o.size || 10) + 3;
-        } else {
-          var linesArr = doc.splitTextToSize(txt, W - 2 * M);
-          linesArr.forEach(function (ln) { room(10); doc.text(ln, M, y + 4); y += lh; });
+      function drawRuns(rsIn, opts) {
+        opts = opts || {};
+        var size = opts.size || 10;
+        var lnH = opts.lineHeight || Math.round(size * 1.35);
+        var indent = opts.indent || 0;
+        var x0 = opts.x, width = opts.width;
+        var rs = rsIn.map(function (r) {
+          return { t: r.t, b: !!r.b || !!opts.bold, i: !!r.i || !!opts.italic, url: r.url || '' };
+        });
+        var y0 = (opts.y == null ? y : opts.y);
+        var line = [], lineW = 0, lineNo = 0;
+        function flush() {
+          if (!line.length) return;
+          var cy = y0;
+          if (cy + size > H - M) { doc.addPage(); cy = M; }
+          var cx = x0 + (lineNo > 0 ? indent : 0);
+          line.forEach(function (rn) {
+            doc.setFont('helvetica', rn.b ? 'bold' : (rn.i ? 'italic' : 'normal'));
+            doc.setFontSize(size);
+            if (rn.url) doc.setTextColor(45, 78, 190);
+            else doc.setTextColor.apply(doc, opts.color || [40, 40, 40]);
+            doc.text(rn.t, cx, cy);
+            cx += doc.getTextWidth(rn.t);
+          });
+          if (opts.onLine) opts.onLine(cy, lineNo);
+          y0 = cy + lnH;
+          lineNo++; line = []; lineW = 0;
         }
-        doc.setTextColor(40, 40, 40);
+        rs.forEach(function (rn) {
+          doc.setFont('helvetica', rn.b ? 'bold' : (rn.i ? 'italic' : 'normal'));
+          doc.setFontSize(size);
+          var w = doc.getTextWidth(rn.t);
+          if (lineW + w > width && line.length) flush();
+          line.push(rn); lineW += w;
+        });
+        flush();
+        return y0;
       }
+      function wrapLines(rs, size, width) {
+        var lines = 1, w = 0;
+        rs.forEach(function (r) {
+          doc.setFont('helvetica', r.b ? 'bold' : 'normal');
+          doc.setFontSize(size);
+          var cw = doc.getTextWidth(r.t);
+          if (w + cw > width && w > 0) { lines++; w = cw; } else w += cw;
+        });
+        return lines;
+      }
+      function forceRuns(runList, o) {
+        o = o || {};
+        return runList.map(function (r) {
+          return { t: r.t, b: o.b ? true : !!r.b, i: o.i ? true : !!r.i, url: r.url || '' };
+        });
+      }
+      var y = M + 12;
 
       /* header */
-      doc.setFont('helvetica', 'bold'); doc.setFontSize(17);
-      doc.setTextColor(17, 24, 39);
-      doc.text(d.header.name, M, y + 5); y += 20;
-      doc.setFont('helvetica', 'bold'); doc.setFontSize(10.5);
-      doc.setTextColor(79, 70, 229);
-      doc.text(d.header.role, M, y + 5); y += 3;
-      y += 12;
-      doc.setFont('helvetica', 'normal'); doc.setFontSize(8.5);
-      doc.setTextColor(107, 114, 128);
-      var contactLine = d.header.contacts.map(function (c) { return c.text; }).join('   ♦   ');
-      doc.text(doc.splitTextToSize(contactLine, W - 2 * M), M, y + 4); y += 16;
-      doc.setDrawColor(200, 200, 205); doc.setLineWidth(0.75);
-      doc.line(M, y, W - M, y); y += 14;
+      y = drawRuns([{ t: d.header.name, b: true }],
+        { x: M, y: y, width: W - 2 * M, size: 17, lineHeight: 21, color: [17, 24, 39] });
+      y = drawRuns([{ t: d.header.role, b: true }],
+        { x: M, y: y, width: W - 2 * M, size: 11, lineHeight: 15, color: [79, 70, 229] });
+      var cRuns = [];
+      d.header.contacts.forEach(function (c, i) {
+        if (i > 0) cRuns.push({ t: '  |  ' });
+        cRuns.push({ t: c.text, url: c.url || '' });
+      });
+      y = drawRuns(cRuns, { x: M, y: y, width: W - 2 * M, size: 9, lineHeight: 12, color: [107, 114, 128] });
+      y += 6;
+      doc.setDrawColor(190, 192, 198); doc.setLineWidth(0.8);
+      doc.line(M, y, W - M, y);
+      y += 8;
 
       /* sections */
       d.sections.forEach(function (s) {
-        room(22);
-        doc.setFont('helvetica', 'bold'); doc.setFontSize(11.5);
-        doc.setTextColor(17, 24, 39);
-        doc.text(s.title.toUpperCase(), M, y + 4); y += 6;
-        doc.setDrawColor(226, 228, 232); doc.setLineWidth(0.6);
-        doc.line(M, y + 3, W - M, y + 3); y += 10;
+        y = drawRuns([{ t: s.title.toUpperCase(), b: true }],
+          { x: M, y: y, width: W - 2 * M, size: 11.6, lineHeight: 17, color: [30, 41, 59] });
+        var ruleY = y - 6;
+        doc.setDrawColor(224, 226, 231); doc.setLineWidth(0.6);
+        doc.line(M, ruleY, W - M, ruleY);
 
         s.blocks.forEach(function (b) {
-          if (b.type === 'p') { para(b.md); y += 2; }
-          else if (b.type === 'bullets') {
+          if (b.type === 'p') {
+            y = drawRuns(runs(b.md),
+              { x: M, y: y, width: W - 2 * M, size: 10, lineHeight: 13, color: [60, 64, 68] });
+            y += 2;
+          } else if (b.type === 'bullets') {
             b.items.forEach(function (it) {
-              var linesB = doc.splitTextToSize('•  ' + plainText(it), W - 2 * M - 12);
-              linesB.forEach(function (ln, idx) {
-                room(10);
-                doc.setFont('helvetica', 'normal'); doc.setFontSize(10);
-                doc.text(ln, M + (idx === 0 ? 0 : 12), y + 4); y += lh;
-              });
+              y = drawRuns([{ t: '•  ' }].concat(forceRuns(runs(it))),
+                { x: M, y: y, width: W - 2 * M - 8, size: 10, lineHeight: 12.5, indent: 12, color: [55, 60, 66] });
             });
             y += 2;
-          }
-          else if (b.type === 'entry' || b.type === 'project') {
-            var title = plainText(b.title), right = plainText(b.dates || b.tech);
-            room(12);
-            doc.setFont('helvetica', 'bold'); doc.setFontSize(10.4);
-            doc.setTextColor(17, 24, 39);
-            doc.text(doc.splitTextToSize(title, W - 2 * M - (right ? 160 : 0)), M, y + 4);
-            if (right) {
-              doc.setFont('helvetica', 'italic'); doc.setFontSize(9.5);
-              doc.setTextColor(107, 114, 128);
-              doc.text(right, W - M, y + 4, { align: 'right' });
-            }
-            y += lh + 1;
-            if (b.org) {
-              var orgTxt = plainText(b.org) + (b.detail ? '  ' + plainText(b.detail) : '');
-              room(10);
-              doc.setFont('helvetica', 'italic'); doc.setFontSize(9.8);
-              doc.setTextColor(90, 95, 105);
-              doc.text(doc.splitTextToSize(orgTxt, W - 2 * M), M, y + 4); y += lh + 1;
+          } else if (b.type === 'entry' || b.type === 'project') {
+            var rightText = b.dates || b.tech;
+            y = drawRuns(forceRuns(runs(b.title), { b: true }), {
+              x: M, y: y, width: W - 2 * M - (rightText ? 135 : 0),
+              size: 10.4, lineHeight: 13.6, color: [20, 30, 50],
+              onLine: function (cy, idx) {
+                if (idx === 0 && rightText) {
+                  doc.setFont('helvetica', 'italic'); doc.setFontSize(9.4);
+                  doc.setTextColor(107, 114, 128);
+                  doc.text(rightText, W - M, cy, { align: 'right', maxWidth: 120 });
+                }
+              }
+            });
+            if (b.org || b.detail) {
+              y = drawRuns([{ t: plainText(b.org) + (b.detail ? '  ' + plainText(b.detail) : ''), i: true }],
+                { x: M, y: y, width: W - 2 * M, size: 9.7, lineHeight: 12.5, color: [88, 94, 104] });
             }
             b.items.forEach(function (it) {
-              var linesE = doc.splitTextToSize('•  ' + plainText(it), W - 2 * M - 12);
-              linesE.forEach(function (ln, idx) {
-                room(10);
-                doc.setFont('helvetica', 'normal'); doc.setFontSize(10);
-                doc.text(ln, M + (idx === 0 ? 0 : 12), y + 4); y += lh;
-              });
+              y = drawRuns([{ t: '•  ' }].concat(forceRuns(runs(it))),
+                { x: M, y: y, width: W - 2 * M - 8, size: 10, lineHeight: 12.5, indent: 12, color: [55, 60, 66] });
             });
             y += 2;
-          }
-          else if (b.type === 'table') {
-            b.rows.forEach(function (row) {
-              room(10);
-              row.forEach(function (cell, ci) {
-                var isB = runs(cell)[0] && runs(cell)[0].b;
-                doc.setFont('helvetica', isB ? 'bold' : 'normal'); doc.setFontSize(9.8);
-                doc.setTextColor(isB ? 17 : 55, isB ? 24 : 58, isB ? 39 : 66);
-                var colW = (W - 2 * M) / row.length;
-                doc.text(cell.replace(/^\*+|\*+$/g, ''), M + ci * colW, y + 4);
+          } else if (b.type === 'table') {
+            var colW = (W - 2 * M) / b.rows[0].length;
+            var prep = b.rows.map(function (row) {
+              return row.map(function (cell) { return forceRuns(runs(cell)); });
+            });
+            function rowHeight(cells) {
+              var n = 1;
+              cells.forEach(function (crs) { n = Math.max(n, wrapLines(crs, 9.6, colW - 6)); });
+              return n * 12.3 + 3;
+            }
+            prep.forEach(function (cells) {
+              var rh = rowHeight(cells);
+              if (y + rh > H - M) { doc.addPage(); y = M; }
+              cells.forEach(function (crs, ci) {
+                drawRuns(crs, { x: M + ci * colW + 2, y: y, width: colW - 6, size: 9.6, lineHeight: 12.3, color: [55, 58, 66] });
               });
-              y += lh;
+              y += rh;
             });
             y += 2;
           }
         });
-        y += 4;
+        y += 2;
       });
       doc.save('Zishan-Ahamed-Thandar-Resume.pdf');
     });
