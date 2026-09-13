@@ -717,6 +717,7 @@
       var TextRun = D.TextRun, Paragraph = D.Paragraph, Hyper = D.ExternalHyperlink;
       var align = D.AlignmentType;
       var IND = '4F46E5', DARK = '111827', MUT = '6B7280';
+      var LEFT = align.LEFT, CENTER = align.CENTER, RIGHT = align.RIGHT;
 
       function run(md) {
         return runs(md).map(function (r) {
@@ -727,47 +728,51 @@
       }
       function para(md, opts) {
         opts = opts || {};
-        return new Paragraph({ children: run(md), spacing: opts.spacing || { after: 90 } });
+        return new Paragraph({ children: run(md), spacing: opts.spacing || { after: 40 } });
       }
       function heading(t) {
         return new Paragraph({
-          children: [new TextRun({ text: t.toUpperCase(), bold: true, size: 23, color: IND, font: 'Poppins' })],
-          spacing: { before: 260, after: 130 }
+          children: [new TextRun({ text: t.toUpperCase(), bold: true, size: 19, color: IND, font: 'Poppins' })],
+          spacing: { before: 80, after: 30 }
         });
       }
       function bulletLine(it) {
-        return new Paragraph({ children: run(it), bullet: { level: 0 }, spacing: { after: 60 } });
+        return new Paragraph({ children: run(it), bullet: { level: 0 }, indent: { left: 180, hanging: 180 }, spacing: { after: 12 } });
       }
       function entryPara(title, right, org, detail) {
-        var kids = run(title);
+        var t = run(title);
         if (right) {
-          kids.push(new TextRun({ text: '    ' + right, italics: true, color: MUT }));
+          t.push(new TextRun({ text: '\t' + right, bold: true, color: MUT }));
         }
-        var out = [new Paragraph({ children: kids, spacing: { before: 120, after: 40 } })];
+        var out = [new Paragraph({
+          children: t,
+          tabStops: [{ type: RIGHT, position: 9920 }],
+          spacing: { before: 30, after: 8 }
+        })];
         if (org) {
           var ok = run(org);
-          if (detail) ok.push(new TextRun({ text: '  ' + detail, italics: true, color: MUT }));
-          out.push(new Paragraph({ children: ok, spacing: { after: 60 } }));
+          if (detail) ok.push(new TextRun({ text: '  ' + detail, italics: true, color: MUT, size: 18 }));
+          out.push(new Paragraph({ children: ok, spacing: { after: 8 } }));
         }
         return out;
       }
 
       var children = [];
-      children.push(new Paragraph({ alignment: align.CENTER, children: [new TextRun({ text: data.header.name, bold: true, size: 34, font: 'Poppins', color: DARK })], spacing: { after: 60 } }));
-      if (data.header.role) children.push(new Paragraph({ alignment: align.CENTER, children: [new TextRun({ text: data.header.role, size: 21, color: IND })], spacing: { after: 120 } }));
+      children.push(new Paragraph({ alignment: CENTER, children: [new TextRun({ text: data.header.name, bold: true, size: 30, font: 'Poppins', color: DARK })], spacing: { after: 20 } }));
+      if (data.header.role) children.push(new Paragraph({ alignment: CENTER, children: [new TextRun({ text: data.header.role, size: 20, color: IND })], spacing: { after: 50 } }));
       if (data.header.contacts.length) {
         var ckids = [];
         data.header.contacts.forEach(function (c, idx) {
-          if (idx > 0) ckids.push(new TextRun({ text: '   ♦   ', color: MUT }));
+          if (idx > 0) ckids.push(new TextRun({ text: '   |   ', color: MUT }));
           ckids.push(new Hyper({ link: c.url || 'mailto:' + c.text, children: [new TextRun({ text: c.text, style: 'Hyperlink' })] }));
         });
-        children.push(new Paragraph({ alignment: align.CENTER, children: ckids, spacing: { after: 160 } }));
+        children.push(new Paragraph({ alignment: CENTER, children: ckids, spacing: { after: 70 } }));
       }
 
       data.sections.forEach(function (s) {
         children.push(heading(s.title));
         s.blocks.forEach(function (b) {
-          if (b.type === 'p') children.push(para(b.md, { spacing: { after: 130 } }));
+          if (b.type === 'p') children.push(para(b.md, { spacing: { after: 40 } }));
           else if (b.type === 'bullets') b.items.forEach(function (it) { children.push(bulletLine(it)); });
           else if (b.type === 'entry' || b.type === 'project') {
             var right = b.dates || b.tech;
@@ -778,18 +783,16 @@
             var rows = b.rows.map(function (row) {
               return new D.TableRow({
                 children: row.map(function (cell) {
-                  var cBold = runs(cell)[0] && runs(cell)[0].b;
-                  return new D.TableCell({ children: [new Paragraph({ children: run(cell), spacing: { after: 30 } })] });
+                  return new D.TableCell({ children: [new Paragraph({ children: run(cell), spacing: { after: 20 } })] });
                 })
               });
             });
-            children.push(new D.Table({ rows: rows, width: { size: 100, type: D.WidthType.PERCENTAGE }, spacing: { after: 140 } }));
+            children.push(new D.Table({ rows: rows, cellMargin: { top: 20, bottom: 20, left: 60, right: 60 }, width: { size: 100, type: D.WidthType.PERCENTAGE }, spacing: { after: 40 } }));
           }
         });
-        children.push(new Paragraph({ spacing: { after: 80 }, children: [] }));
       });
 
-      var doc = new D.Document({ styles: { default: { document: { run: { font: 'Calibri', size: 21 } } } }, sections: [{ properties: {}, children: children }] });
+      var doc = new D.Document({ styles: { default: { document: { run: { font: 'Calibri', size: 20 } } } }, sections: [{ properties: { page: { margin: { top: 540, right: 540, bottom: 540, left: 540 } } }, children: children }] });
       return D.Packer.toBlob(doc).then(function (blob) {
         saveBlob(blob, 'Zishan-Ahamed-Thandar-Resume.docx');
       });
