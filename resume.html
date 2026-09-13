@@ -642,6 +642,7 @@
 
       /* sections */
       d.sections.forEach(function (s) {
+        if (y + 34 > H - M) { doc.addPage(); y = M; }
         y = drawRuns([{ t: s.title.toUpperCase(), b: true }],
           { x: M, y: y, width: W - 2 * M, size: 11.6, lineHeight: 17, color: [30, 41, 59] });
         var ruleY = y - 6;
@@ -658,7 +659,6 @@
               y = drawRuns([{ t: '•  ' }].concat(forceRuns(runs(it))),
                 { x: M, y: y, width: W - 2 * M - 8, size: 10, lineHeight: 12.5, indent: 12, color: [55, 60, 66] });
             });
-            y += 2;
           } else if (b.type === 'entry' || b.type === 'project') {
             var rightText = b.dates || b.tech;
             y = drawRuns(forceRuns(runs(b.title), { b: true }), {
@@ -680,7 +680,6 @@
               y = drawRuns([{ t: '•  ' }].concat(forceRuns(runs(it))),
                 { x: M, y: y, width: W - 2 * M - 8, size: 10, lineHeight: 12.5, indent: 12, color: [55, 60, 66] });
             });
-            y += 2;
           } else if (b.type === 'table') {
             var colW = (W - 2 * M) / b.rows[0].length;
             var prep = b.rows.map(function (row) {
@@ -702,7 +701,7 @@
             y += 2;
           }
         });
-        y += 2;
+        y += 4;
       });
       saveBlob(doc.output('blob'), 'Zishan-Ahamed-Thandar-Resume.pdf');
     });
