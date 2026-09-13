@@ -555,11 +555,11 @@
         if (!PM || !PM.vfs) throw new Error('pdfmake failed to load');
         var W = 595.28 - 38 * 2;
         var CFG = {
-          name: 14, role: 7.4, contact: 6.0, headRuleTop: 2.5,
-          head: 7.9, headRule: 0.4, headRuleGap: 1, headGap: 2.2,
-          body: 6.2, lh: 1.1, bodyGap: 0.55,
-          entry: 6.45, sub: 6.05, right: 6.2, entryGap: 0.7,
-          cell: 6.15, tableGap: 0.5
+          name: 16, role: 8.2, contact: 6.6, headRuleTop: 4,
+          head: 9.0, headRule: 0.4, headRuleGap: 1, headGap: 2.2,
+          body: 6.85, lh: 1.165, bodyGap: 0.8,
+          entry: 7.25, sub: 6.75, right: 6.8, entryGap: 0.7,
+          cell: 6.9, tableGap: 0.5
         };
         function inl(md) {
           return spaced(runs(md || '')).filter(function (r) { return r.t; }).map(function (r) {
@@ -643,7 +643,7 @@
         });
         var dd = {
           pageSize: 'A4',
-          pageMargins: [38, 11, 38, 10],
+          pageMargins: [38, 14, 38, 14],
           defaultStyle: { font: 'Roboto' },
           content: content,
           pageBreakBefore: function (cur, fol) { return false; }
