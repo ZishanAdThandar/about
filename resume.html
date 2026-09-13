@@ -531,6 +531,20 @@
     });
   }
 
+  function saveBlob(blob, filename) {
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    if (typeof a.download === 'undefined') {
+      var w = window.open(url, '_blank');
+      if (!w) location.href = url;
+    }
+    setTimeout(function () { URL.revokeObjectURL(url); a.remove(); }, 15000);
+  }
+
   /* ============================================================
      PDF GENERATION (jsPDF)
   ============================================================ */
@@ -690,7 +704,7 @@
         });
         y += 2;
       });
-      doc.save('Zishan-Ahamed-Thandar-Resume.pdf');
+      saveBlob(doc.output('blob'), 'Zishan-Ahamed-Thandar-Resume.pdf');
     });
   }
 
@@ -777,11 +791,7 @@
 
       var doc = new D.Document({ styles: { default: { document: { run: { font: 'Calibri', size: 21 } } } }, sections: [{ properties: {}, children: children }] });
       return D.Packer.toBlob(doc).then(function (blob) {
-        var a = document.createElement('a');
-        a.href = URL.createObjectURL(blob);
-        a.download = 'Zishan-Ahamed-Thandar-Resume.docx';
-        document.body.appendChild(a); a.click();
-        setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 4000);
+        saveBlob(blob, 'Zishan-Ahamed-Thandar-Resume.docx');
       });
     });
   }
