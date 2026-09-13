@@ -553,8 +553,17 @@
         var d = model;
         var PM = window.pdfMake;
         if (!PM || !PM.vfs) throw new Error('pdfmake failed to load');
+      function spaced(rs) {
+          var out = [];
+          rs.forEach(function (r) {
+            var t = (r.t || '').replace(/\s+/g, ' ');
+            if (/^\s+$/.test(t) && out.length) { out[out.length - 1].t += ' '; return; }
+            if (t) { if (/^\s/.test(t) && out.length) out[out.length - 1].t += t.replace(/^\s+/, ' '); else out.push({ t: t, b: r.b, i: r.i, url: r.url }); }
+          });
+          return out.filter(function (r) { return r.t.trim(); });
+        }
         function inl(md) {
-          return runs(md || '').filter(function (r) { return r.t && r.t.replace(/\s+/g, ''); }).map(function (r) {
+          return spaced(runs(md || '')).filter(function (r) { return r.t; }).map(function (r) {
             var x = { text: r.t };
             if (r.b) x.bold = true;
             if (r.i) x.italics = true;
@@ -564,7 +573,7 @@
         }
         function ulOf(items, opt) {
           return {
-            ul: items.map(function (it) { return { stack: inl(it) }; }),
+            ul: items.map(function (it) { return { text: inl(it) }; }),
             fontSize: opt.size, color: opt.color, lineHeight: opt.lh,
             markerColor: '6B7280', margin: opt.margin
           };
@@ -577,10 +586,10 @@
         if (d.header.contacts.length) {
           var cks = [];
           d.header.contacts.forEach(function (c, i) {
-            if (i > 0) cks.push({ text: '   |   ', color: '9CA3AF', fontSize: 7.4 });
+            if (i > 0) cks.push({ text: '   ♦   ', color: '9CA3AF', fontSize: 7.4 });
             cks.push({ text: c.text, link: c.url || 'mailto:' + c.text, color: '6B7280', fontSize: 7.4 });
           });
-          content.push({ stack: cks, alignment: 'center', margin: [0, 1, 0, 3] });
+          content.push({ text: cks, alignment: 'center', margin: [0, 1, 0, 3] });
         }
         content.push({ canvas: [{ type: 'line', x1: 0, y1: 0, x2: 511, y2: 0, lineWidth: 0.6, lineColor: 'D1D5DB' }], margin: [0, 2, 0, 4] });
         d.sections.forEach(function (s) {
@@ -593,7 +602,7 @@
           });
           s.blocks.forEach(function (b) {
             if (b.type === 'p') {
-              content.push({ stack: inl(b.md), fontSize: 8.4, color: '3C4046', lineHeight: 1.12, margin: [0, 0.2, 0, 1] });
+              content.push({ text: inl(b.md), fontSize: 8.4, color: '3C4046', lineHeight: 1.12, margin: [0, 0.2, 0, 1] });
             } else if (b.type === 'bullets') {
               content.push(ulOf(b.items, { size: 8.4, color: '3C4046', lh: 1.12, margin: [0, 0.2, 0, 1] }));
             } else if (b.type === 'entry' || b.type === 'project') {
@@ -606,7 +615,7 @@
               if (b.org || b.detail) {
                 var sub = inl(b.org);
                 if (b.detail) sub.push({ text: '  ' + b.detail, italics: true, color: '6B7280' });
-                content.push({ stack: sub, fontSize: 8.0, color: '6B7280', margin: [0, 0.4, 0, 0] });
+                content.push({ text: sub, fontSize: 8.0, color: '6B7280', margin: [0, 0.4, 0, 0] });
               }
               if (b.items && b.items.length) content.push(ulOf(b.items, { size: 8.4, color: '3C4046', lh: 1.12, margin: [0, 0.2, 0, 1] }));
             } else if (b.type === 'table') {
