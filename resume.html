@@ -534,8 +534,9 @@
   /* ============================================================
      PDF GENERATION (jsPDF)
   ============================================================ */
-  function genPDF(data) {
+  function genPDF(model) {
     return loadLib('https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js').then(function () {
+      var d = model;
       var jsPDF = window.jspdf.jsPDF;
       var doc = new jsPDF({ unit: 'pt', format: 'a4' });
       var W = doc.internal.pageSize.getWidth(), H = doc.internal.pageSize.getHeight();
