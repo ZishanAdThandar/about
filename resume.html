@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Resume — Zishan Ahamed Thandar</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Zishan Ahamed Thandar">
+  <meta name="description" content="Resume of Zishan Ahamed Thandar — Offensive Security Engineer, Penetration Tester and Security Consultant. Generated live from resume.tex, with one-click PDF and DOCX downloads.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://zishanhack.com/about/resume">
+
+  <meta property="og:site_name" content="ZishanHack">
+  <meta property="og:title" content="Resume — Zishan Ahamed Thandar">
+  <meta property="og:description" content="Offensive Security Engineer, Penetration Tester and Security Consultant. View the live resume and download PDF or DOCX.">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://zishanhack.com/about/resume">
+  <meta property="og:image" content="https://zishanhack.com/about/img/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Resume — Zishan Ahamed Thandar">
+  <meta name="twitter:description" content="Offensive Security Engineer, Penetration Tester and Security Consultant.">
+
+  <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/svgs/solid/shield-halved.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YYCENYFQ0P"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YYCENYFQ0P');
+  </script>
+
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --accent: #f59e0b;
+      --bg: #0a0e17;
+      --card: #ffffff;
+      --ink: #1f2937;
+      --mut: #6b7280;
+      --rule: #e5e7eb;
+      --indigo: #4f46e5;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background:
+        radial-gradient(800px 400px at 15% -10%, rgba(139,92,246,.18), transparent 60%),
+        radial-gradient(700px 380px at 90% 0%, rgba(99,102,241,.16), transparent 60%),
+        var(--bg);
+      color: var(--ink);
+    }
+    .toolbar {
+      position: sticky; top: 0; z-index: 50;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .75rem;
+      padding: .8rem 1.25rem;
+      background: rgba(10,14,23,.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .toolbar a, .toolbar .brand {
+      color: #e5e7eb; text-decoration: none; font-size: .9rem; font-weight: 600;
+    }
+    .toolbar a:hover { color: #a5b4fc; }
+    .brand i { color: var(--primary); margin-right: .4rem; }
+    .actions { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; }
+    .btn-gen {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .55rem 1rem; border-radius: .6rem; border: 1px solid rgba(255,255,255,.14);
+      background: linear-gradient(135deg, #6366f1, #8b5cf6); color: #fff;
+      font-weight: 600; font-size: .85rem; cursor: pointer;
+      transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+    }
+    .btn-gen:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(99,102,241,.35); }
+    .btn-gen:disabled { opacity: .6; cursor: progress; transform: none; box-shadow: none; }
+    .btn-ghost {
+      background: transparent; border-color: rgba(255,255,255,.18); color: #e5e7eb;
+    }
+    .btn-ghost:hover { box-shadow: 0 8px 20px rgba(255,255,255,.06); }
+    .toolbar-note { font-size: .72rem; color: #94a3b8; }
+
+    main { padding: 2rem 1rem 3rem; }
+    .resume-doc {
+      max-width: 850px; margin: 0 auto;
+      background: var(--card);
+      border-radius: 14px;
+      box-shadow: 0 30px 60px -20px rgba(0,0,0,.6);
+      padding: clamp(1.5rem, 4vw, 3rem);
+      color: var(--ink);
+      line-height: 1.45;
+      font-size: .95rem;
+    }
+    .r-name { font-family: 'Poppins', sans-serif; font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 800; letter-spacing: .2px; margin: 0; }
+    .r-role { margin: .15rem 0 .5rem; color: var(--indigo); font-weight: 600; font-size: .98rem; }
+    .r-contacts { display: flex; flex-wrap: wrap; gap: .25rem .9rem; color: var(--mut); font-size: .82rem; }
+    .r-contacts a { color: var(--indigo); text-decoration: none; }
+    .r-contacts a:hover { text-decoration: underline; }
+    .r-contacts .sep { color: #c7cbd1; }
+
+    .r-section { margin-top: 1.4rem; border-bottom: 1.5px solid var(--rule); padding-bottom: .25rem; }
+    .r-section h3 {
+      font-family: 'Poppins', sans-serif; font-size: .95rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: .7px; color: #111827; margin: 0;
+    }
+    .r-p { margin: .55rem 0; color: #374151; }
+
+    .r-entry { margin: .55rem 0; }
+    .r-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+    .r-t { font-weight: 700; color: #111827; }
+    .r-t a { color: var(--indigo); text-decoration: none; }
+    .r-t a:hover { text-decoration: underline; }
+    .r-d, .r-tech { font-style: italic; color: var(--mut); font-size: .88rem; white-space: nowrap; }
+    .r-sub { font-style: italic; margin-top: 1px; }
+    .r-sub a { color: var(--indigo); text-decoration: none; }
+    .r-dtl { font-style: normal; }
+
+    .r-doc ul { margin: .35rem 0 .35rem 1.1rem; padding-left: 0; }
+    .r-doc li { margin: .18rem 0; color: #374151; list-style: disc; }
+    .r-doc li a { color: var(--indigo); text-decoration: none; }
+    .r-doc li a:hover { text-decoration: underline; }
+
+    .r-table { width: 100%; border-collapse: collapse; margin: .4rem 0; }
+    .r-table td, .r-table th { padding: .3rem .5rem .3rem 0; font-size: .9rem; color: #374151; text-align: left; }
+    .r-table th { color: #111827; }
+
+    .loading { color: var(--mut); display: inline-flex; align-items: center; gap: .5rem; }
+
+    @media (max-width: 640px) {
+      .resume-doc { padding: 1.2rem; }
+    }
+    @media print {
+      body { background: #fff; }
+      .toolbar { display: none; }
+      main { padding: 0; }
+      .resume-doc { box-shadow: none; border-radius: 0; max-width: none; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="toolbar">
+  <a class="brand" href="./"><i class="fa-solid fa-shield-halved"></i> Zishan Ahamed Thandar</a>
+  <div class="toolbar-note">Rendered from <code style="color:#a5b4fc">resume.tex</code> in your browser</div>
+  <div class="actions">
+    <button id="btn-pdf" class="btn-gen" type="button"><i class="fa-solid fa-file-pdf"></i> Download PDF</button>
+    <button id="btn-docx" class="btn-gen btn-ghost" type="button"><i class="fa-solid fa-file-word"></i> Download DOCX</button>
+    <a class="btn-gen btn-ghost" href="./resume.tex" download style="text-decoration:none"><i class="fa-solid fa-file-lines"></i> .tex source</a>
+  </div>
+</div>
+
+<main>
+  <div class="resume-doc" id="resume-dom">
+    <div class="loading"><i class="fa-solid fa-spinner fa-spin"></i> Loading resume.tex…</div>
+  </div>
+</main>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ============================================================
+     BRACE-AWARE HELPERS
+  ============================================================ */
+  function findClosing(s, from) {
+    var depth = 0;
+    for (var i = from; i < s.length; i++) {
+      var c = s[i];
+      if (c === '\\') { i++; continue; }
+      if (c === '{') depth++;
+      else if (c === '}') { depth--; if (depth === 0) return i; }
+    }
+    return -1;
+  }
+
+  function extractArgs(s, start) {
+    var args = [], i = start;
+    while (i < s.length && s[i] === '{') {
+      var e = findClosing(s, i);
+      if (e === -1) break;
+      args.push(s.slice(i + 1, e));
+      i = e + 1;
+    }
+    return { args: args, next: i };
+  }
+
+  /* ============================================================
+     INLINE TEX -> mini-markup ([text](url), **bold**, *italic*)
+  ============================================================ */
+  function normalize(s) {
+    var out = '', i = 0;
+    while (i < s.length) {
+      var c = s[i];
+      if (c === '\\') {
+        var rest = s.slice(i);
+        var href = rest.match(/^\\href\s*\{/);
+        if (href) {
+          var p = i + 5;
+          while (s[p] === ' ') p++;
+          var urlEnd = findClosing(s, p), textStart = urlEnd + 1, textEnd = findClosing(s, textStart);
+          if (urlEnd === -1 || textEnd === -1) { i++; continue; }
+          var url = s.slice(p + 1, urlEnd);
+          var text = normalize(s.slice(textStart + 1, textEnd));
+          out += '[' + text + '](' + url + ')';
+          i = textEnd + 1; continue;
+        }
+        var w = rest.match(/^\\([a-zA-Z]+)/);
+        if (w) {
+          var cmd = w[1];
+          if (cmd === 'textbf' || cmd === 'textit' || cmd === 'emph' || cmd === 'texttt') {
+            var q = i + cmd.length + 1;
+            while (s[q] !== '{') q++;
+            var e = findClosing(s, q);
+            if (e === -1) { i += w[0].length; continue; }
+            var inner = normalize(s.slice(q + 1, e));
+            out += (cmd === 'textbf') ? '**' + inner + '**' : '*' + inner + '*';
+            i = e + 1; continue;
+          }
+          if (cmd === 'bfseries') { out += '**'; i += w[0].length; continue; }
+          if (cmd === 'itshape') { out += '*'; i += w[0].length; continue; }
+          if (cmd === 'quad' || cmd === 'qquad') { out += '    '; i += w[0].length; continue; }
+          if (cmd === 'enskip' || cmd === 'enspace') { out += ' '; i += w[0].length; continue; }
+          if (cmd === 'newline' || cmd === 'linebreak' || cmd === 'par') { out += '\n'; i += w[0].length; continue; }
+          if (/^(LARGE|Large|large|scriptsize|small|normalsize|Huge|huge)$/.test(cmd)) { i += w[0].length; continue; }
+          i += w[0].length; continue; /* unknown control word -> drop */
+        }
+        var sym = rest.match(/^\\([^a-zA-Z])/);
+        if (sym) {
+          var ch = sym[1];
+          if (ch === '\\') {
+            var after = s.slice(i + 2).match(/^\[[-\d.]+pt\]*/);
+            out += '\n'; i += 2 + (after ? after[0].length : 0); continue;
+          }
+          if (ch === '$') { i += 2; continue; } /* $ math open/close handled below */
+          if (ch === '&') { out += '&'; i += 2; continue; }
+          if (ch === '%') { out += '%'; i += 2; continue; }
+          if (ch === '{') { i += 2; continue; }
+          if (ch === '}') { i += 2; continue; }
+          if (ch === '#') { out += '#'; i += 2; continue; }
+          if (ch === '~') { out += ' '; i += 2; continue; }
+          out += ch; i += 2; continue;
+        }
+        i++; continue;
+      }
+      if (c === '{' || c === '}') { i++; continue; }
+      if (c === '$') {
+        if (s.startsWith('$\\diamond$', i)) { out += ' ♦ '; i += '$\\diamond$'.length; continue; }
+        var close = s.indexOf('$', i + 1);
+        out += s.slice(i + 1, close === -1 ? i + 1 : close);
+        i = close === -1 ? i + 1 : close + 1; continue;
+      }
+      if (c === '~') { out += ' '; i++; continue; }
+      out += c; i++;
+    }
+    return out;
+  }
+
+  /* ============================================================
+     MINI-MARKUP -> runs [{t,url?,b?,i?}]
+  ============================================================ */
+  var MD_RE = /\[.+?\]\([^()\s]+\)|\*\*[^*]+\*\*|\*[^*]+\*/g;
+  function runs(md) {
+    var out = [];
+    function plain(seg) {
+      seg.split('\n').forEach(function (line, idx) {
+        if (idx > 0) out.push({ t: ' ' });
+        if (line) out.push({ t: line });
+      });
+    }
+    var last = 0, m;
+    MD_RE.lastIndex = 0;
+    while ((m = MD_RE.exec(md)) !== null) {
+      if (m.index > last) plain(md.slice(last, m.index));
+      var tok = m[0];
+      if (tok[0] === '[') {
+        var cut = tok.lastIndexOf('](');
+        out.push({ t: tok.slice(1, cut), url: tok.slice(cut + 2, -1) });
+      } else if (tok.indexOf('**') === 0) {
+        var bt = tok.slice(2, -2);
+        out.push({ t: bt.replace(/\s+/g, ' '), b: true });
+      } else {
+        out.push({ t: tok.replace(/^\*|\*$/g, '').replace(/\s+/g, ' '), b: false, i: true });
+      }
+      last = m.index + tok.length;
+    }
+    if (last < md.length) plain(md.slice(last));
+    return out;
+  }
+
+  function plainText(md) {
+    return runs(md).map(function (r) { return r.t; }).join(' ').replace(/\s+/g, ' ').trim();
+  }
+
+  /* ============================================================
+     STRUCTURAL PARSING
+  ============================================================ */
+  function skipWs(s, i) { while (i < s.length && /\s/.test(s[i])) i++; return i; }
+
+  function parseItems(raw, start) {
+    var close = raw.indexOf('\\end{itemize}', start);
+    if (close === -1) return { items: [], next: raw.length };
+    var inner = raw.slice(start + '\\begin{itemize}'.length, close);
+    var parts = inner.split('\\item');
+    var items = parts.slice(1).map(function (p) { return normalize(p.trim()); }).filter(function (x) { return x; });
+    return { items: items, next: close + '\\end{itemize}'.length };
+  }
+
+  function parseTable(raw, start) {
+    var close = raw.indexOf('\\end{tabularx}', start);
+    if (close === -1) return { rows: [], next: raw.length };
+    var bodyEnd = close;
+    var bodyStart = raw.indexOf('}', start);
+    var body = raw.slice(bodyStart + 1, bodyEnd);
+    var lines = body.split('\n').filter(function (l) { return l.trim(); });
+    var k = 0;
+    while (k < lines.length && lines[k].indexOf('&') === -1) k++; /* skip column spec */
+    var rows = [], src = lines.slice(k).join('\n');
+    var rawRows = src.split(/\\\\\s*[\r\n]?/);
+    rawRows.forEach(function (rr) {
+      var cells = rr.split('&').map(function (c) { return normalize(c).trim(); });
+      cells = cells.filter(function (c, idx, arr) { return !(c === '' && idx === arr.length - 1); });
+      if (cells.length) rows.push(cells);
+    });
+    return { rows: rows, next: close + '\\end{tabularx}'.length };
+  }
+
+  function parseSectionBody(raw) {
+    var blocks = [], i = 0, buf = '';
+    function flush() {
+      if (buf.replace(/\s+/g, ' ').trim()) blocks.push({ type: 'p', md: normalize(buf.trim()) });
+      buf = '';
+    }
+    while (i < raw.length) {
+      if (raw.startsWith('\\resumeEntry', i)) {
+        flush();
+        var r = extractArgs(raw, i + '\\resumeEntry'.length);
+        var md = r.args.map(normalize);
+        var j = skipWs(raw, r.next);
+        var bi = raw.startsWith('\\begin{itemize}', j) ? parseItems(raw, j) : { items: [], next: j };
+        blocks.push({ type: 'entry', title: md[0] || '', dates: md[1] || '', org: md[2] || '', detail: md[3] || '', items: bi.items });
+        i = bi.next; continue;
+      }
+      if (raw.startsWith('\\project', i)) {
+        flush();
+        var pr = extractArgs(raw, i + '\\project'.length);
+        var j2 = skipWs(raw, pr.next);
+        var bi2 = raw.startsWith('\\begin{itemize}', j2) ? parseItems(raw, j2) : { items: [], next: j2 };
+        blocks.push({ type: 'project', title: normalize(pr.args[0]) || '', tech: normalize(pr.args[1]) || '', items: bi2.items });
+        i = bi2.next; continue;
+      }
+      if (raw.startsWith('\\begin{itemize}', i)) {
+        flush();
+        var b = parseItems(raw, i);
+        blocks.push({ type: 'bullets', items: b.items });
+        i = b.next; continue;
+      }
+      if (raw.startsWith('\\begin{tabularx}', i)) {
+        flush();
+        var t = parseTable(raw, i);
+        blocks.push({ type: 'table', rows: t.rows });
+        i = t.next; continue;
+      }
+      if (raw.startsWith('\\end{itemize}', i) || raw.startsWith('\\end{tabularx}', i)) { i += raw.length; continue; }
+      var c = raw[i];
+      if (c === '\\' && raw[i + 1] === '\\') {
+        buf += '\n';
+        var am = raw.slice(i + 2).match(/^\[[-\d.]+pt\]*/);
+        i += 2 + (am ? am[0].length : 0); continue;
+      }
+      if (c === '\n') {
+        if (raw[i + 1] === '\n') { flush(); i += 2; }
+        else { buf += '\n'; i++; }
+        continue;
+      }
+      buf += c; i++;
+    }
+    flush();
+    return blocks;
+  }
+
+  function parseHeader(headRaw) {
+    var src = headRaw;
+    var cb = src.match(/\\begin\{center\}([\s\S]*?)\\end\{center\}/);
+    if (cb) src = cb[1];
+    var norm = normalize(src);
+    var lines = norm.split('\n').map(function (l) { return l.replace(/\s+/g, ' ').trim(); }).filter(function (l) { return l; });
+    var name = '', role = '', contacts = [];
+    lines.forEach(function (ln) {
+      if (!name && ln) { name = ln.replace(/^\*+|\*+$/g, '').replace(/\s+/g, ' ').trim(); return; }
+      if (!role && ln) { role = ln.replace(/^\*+|\*+$/g, '').replace(/\s+/g, ' ').trim(); return; }
+    });
+    /* remaining lines (joined) are contacts separated by diamond */
+    var rest = lines.slice(2).join(' ♦ ');
+    rest.split('♦').forEach(function (tok) {
+      tok = tok.trim();
+      if (!tok) return;
+      var rs = runs(tok);
+      if (!rs.length) return;
+      var first = rs[0];
+      if (first.url) contacts.push({ text: plainText(tok), url: first.url });
+      else contacts.push({ text: tok.replace(/\s+/g, ' ').trim(), url: '' });
+    });
+    return { name: name, role: role, contacts: contacts };
+  }
+
+  function parseTex(tex) {
+    var ds = tex.indexOf('\\begin{document}');
+    var de = tex.indexOf('\\end{document}', ds);
+    if (ds === -1) throw new Error('No \\document block found');
+    var body = tex.slice(ds + '\\begin{document}'.length, de === -1 ? tex.length : de);
+
+    var secIdxs = [], i = 0;
+    while ((i = body.indexOf('\\section{', i)) !== -1) {
+      var e = findClosing(body, i + 8);
+      if (e === -1) break;
+      secIdxs.push({ start: i, end: e, title: normalize(body.slice(i + 9, e)) });
+      i = e + 1;
+    }
+
+    var headerRaw = secIdxs.length ? body.slice(0, secIdxs[0].start) : body;
+    var header = parseHeader(headerRaw);
+
+    var sections = [];
+    for (var k = 0; k < secIdxs.length; k++) {
+      var contentStart = secIdxs[k].end + 1;
+      var contentEnd = (k + 1 < secIdxs.length) ? secIdxs[k + 1].start : body.length;
+      sections.push({ title: secIdxs[k].title, blocks: parseSectionBody(body.slice(contentStart, contentEnd)) });
+    }
+    return { header: header, sections: sections };
+  }
+
+  /* ============================================================
+     HTML RENDERING
+  ============================================================ */
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+  function runsHtml(rs) {
+    return rs.map(function (r) {
+      var t = esc(r.t);
+      if (r.url) return '<a href="' + esc(r.url) + '" rel="noopener" target="_blank">' + t + '</a>';
+      if (r.b) return '<strong>' + t + '</strong>';
+      if (r.i) return '<em>' + t + '</em>';
+      return t;
+    }).join('');
+  }
+  function mdHtml(md) { return runsHtml(runs(md)); }
+  function ulHtml(items) {
+    return '<ul>' + items.map(function (it) { return '<li>' + mdHtml(it) + '</li>'; }).join('') + '</ul>';
+  }
+  function blockHtml(b) {
+    if (b.type === 'p') return '<p class="r-p">' + mdHtml(b.md) + '</p>';
+    if (b.type === 'bullets') return ulHtml(b.items);
+    if (b.type === 'table') {
+      return '<table class="r-table">' + b.rows.map(function (row, ri) {
+        var tag = ri === 0 ? 'th' : 'td';
+        return '<tr>' + row.map(function (cell) { return '<' + tag + '>' + mdHtml(cell) + '</' + tag + '>'; }).join('') + '</tr>';
+      }).join('') + '</table>';
+    }
+    if (b.type === 'entry') {
+      var h = '<div class="r-entry">';
+      h += '<div class="r-row"><span class="r-t">' + mdHtml(b.title) + '</span>';
+      if (b.dates) h += '<span class="r-d">' + esc(b.dates) + '</span>';
+      h += '</div>';
+      if (b.org || b.detail) {
+        h += '<div class="r-sub">' + mdHtml(b.org);
+        if (b.detail) h += ' <span class="r-dtl">' + esc(b.detail) + '</span>';
+        h += '</div>';
+      }
+      if (b.items && b.items.length) h += ulHtml(b.items);
+      return h + '</div>';
+    }
+    if (b.type === 'project') {
+      var ph = '<div class="r-entry">';
+      ph += '<div class="r-row"><span class="r-t">' + mdHtml(b.title) + '</span>';
+      if (b.tech) ph += '<span class="r-tech">' + esc(b.tech) + '</span>';
+      ph += '</div>';
+      if (b.items && b.items.length) ph += ulHtml(b.items);
+      return ph + '</div>';
+    }
+    return '';
+  }
+
+  function render(data, dom) {
+    var d = data, h = '';
+    h += '<header class="r-head">';
+    h += '<h1 class="r-name">' + esc(d.header.name) + '</h1>';
+    if (d.header.role) h += '<div class="r-role">' + esc(d.header.role) + '</div>';
+    if (d.header.contacts.length) {
+      h += '<div class="r-contacts">';
+      d.header.contacts.forEach(function (c, idx) {
+        if (idx > 0) h += '<span class="sep">♦</span>';
+        h += c.url ? '<a href="' + esc(c.url) + '" target="_blank" rel="noopener">' + esc(c.text) + '</a>'
+                   : '<span>' + esc(c.text) + '</span>';
+      });
+      h += '</div>';
+    }
+    h += '</header>';
+    d.sections.forEach(function (s) {
+      h += '<section class="r-section"><h3>' + esc(s.title) + '</h3></section>';
+      s.blocks.forEach(function (b) { h += blockHtml(b); });
+    });
+    dom.innerHTML = h;
+  }
+
+  /* ============================================================
+     LAZY LIB LOADING
+  ============================================================ */
+  function loadLib(src) {
+    return new Promise(function (resolve, reject) {
+      if (document.querySelector('script[data-lib="' + src + '"]')) return resolve();
+      var s = document.createElement('script');
+      s.src = src; s.async = true; s.dataset.lib = src;
+      s.onload = function () { resolve(); };
+      s.onerror = function () { reject(new Error('Failed to load ' + src)); };
+      document.head.appendChild(s);
+    });
+  }
+
+  /* ============================================================
+     PDF GENERATION (jsPDF)
+  ============================================================ */
+  function genPDF(data) {
+    return loadLib('https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js').then(function () {
+      var jsPDF = window.jspdf.jsPDF;
+      var doc = new jsPDF({ unit: 'pt', format: 'a4' });
+      var W = doc.internal.pageSize.getWidth(), H = doc.internal.pageSize.getHeight();
+      var M = 46, y = M, lh = 12.5;
+
+      function room(w) { if (y > H - M - w) { doc.addPage(); y = M; } }
+      function para(md, o) {
+        o = o || {};
+        var txt = plainText(md);
+        var style = o.bold ? 'bold' : (o.italic ? 'italic' : 'normal');
+        doc.setFont('helvetica', style);
+        doc.setFontSize(o.size || 10);
+        if (o.color) doc.setTextColor.apply(doc, o.color);
+        if (o.right) {
+          doc.text(txt, W - M, y + 4, { align: 'right' });
+          y += (o.size || 10) + 3;
+        } else {
+          var linesArr = doc.splitTextToSize(txt, W - 2 * M);
+          linesArr.forEach(function (ln) { room(10); doc.text(ln, M, y + 4); y += lh; });
+        }
+        doc.setTextColor(40, 40, 40);
+      }
+
+      /* header */
+      doc.setFont('helvetica', 'bold'); doc.setFontSize(17);
+      doc.setTextColor(17, 24, 39);
+      doc.text(d.header.name, M, y + 5); y += 20;
+      doc.setFont('helvetica', 'bold'); doc.setFontSize(10.5);
+      doc.setTextColor(79, 70, 229);
+      doc.text(d.header.role, M, y + 5); y += 3;
+      y += 12;
+      doc.setFont('helvetica', 'normal'); doc.setFontSize(8.5);
+      doc.setTextColor(107, 114, 128);
+      var contactLine = d.header.contacts.map(function (c) { return c.text; }).join('   ♦   ');
+      doc.text(doc.splitTextToSize(contactLine, W - 2 * M), M, y + 4); y += 16;
+      doc.setDrawColor(200, 200, 205); doc.setLineWidth(0.75);
+      doc.line(M, y, W - M, y); y += 14;
+
+      /* sections */
+      d.sections.forEach(function (s) {
+        room(22);
+        doc.setFont('helvetica', 'bold'); doc.setFontSize(11.5);
+        doc.setTextColor(17, 24, 39);
+        doc.text(s.title.toUpperCase(), M, y + 4); y += 6;
+        doc.setDrawColor(226, 228, 232); doc.setLineWidth(0.6);
+        doc.line(M, y + 3, W - M, y + 3); y += 10;
+
+        s.blocks.forEach(function (b) {
+          if (b.type === 'p') { para(b.md); y += 2; }
+          else if (b.type === 'bullets') {
+            b.items.forEach(function (it) {
+              var linesB = doc.splitTextToSize('•  ' + plainText(it), W - 2 * M - 12);
+              linesB.forEach(function (ln, idx) {
+                room(10);
+                doc.setFont('helvetica', 'normal'); doc.setFontSize(10);
+                doc.text(ln, M + (idx === 0 ? 0 : 12), y + 4); y += lh;
+              });
+            });
+            y += 2;
+          }
+          else if (b.type === 'entry' || b.type === 'project') {
+            var title = plainText(b.title), right = plainText(b.dates || b.tech);
+            room(12);
+            doc.setFont('helvetica', 'bold'); doc.setFontSize(10.4);
+            doc.setTextColor(17, 24, 39);
+            doc.text(doc.splitTextToSize(title, W - 2 * M - (right ? 160 : 0)), M, y + 4);
+            if (right) {
+              doc.setFont('helvetica', 'italic'); doc.setFontSize(9.5);
+              doc.setTextColor(107, 114, 128);
+              doc.text(right, W - M, y + 4, { align: 'right' });
+            }
+            y += lh + 1;
+            if (b.org) {
+              var orgTxt = plainText(b.org) + (b.detail ? '  ' + plainText(b.detail) : '');
+              room(10);
+              doc.setFont('helvetica', 'italic'); doc.setFontSize(9.8);
+              doc.setTextColor(90, 95, 105);
+              doc.text(doc.splitTextToSize(orgTxt, W - 2 * M), M, y + 4); y += lh + 1;
+            }
+            b.items.forEach(function (it) {
+              var linesE = doc.splitTextToSize('•  ' + plainText(it), W - 2 * M - 12);
+              linesE.forEach(function (ln, idx) {
+                room(10);
+                doc.setFont('helvetica', 'normal'); doc.setFontSize(10);
+                doc.text(ln, M + (idx === 0 ? 0 : 12), y + 4); y += lh;
+              });
+            });
+            y += 2;
+          }
+          else if (b.type === 'table') {
+            b.rows.forEach(function (row) {
+              room(10);
+              row.forEach(function (cell, ci) {
+                var isB = runs(cell)[0] && runs(cell)[0].b;
+                doc.setFont('helvetica', isB ? 'bold' : 'normal'); doc.setFontSize(9.8);
+                doc.setTextColor(isB ? 17 : 55, isB ? 24 : 58, isB ? 39 : 66);
+                var colW = (W - 2 * M) / row.length;
+                doc.text(cell.replace(/^\*+|\*+$/g, ''), M + ci * colW, y + 4);
+              });
+              y += lh;
+            });
+            y += 2;
+          }
+        });
+        y += 4;
+      });
+      doc.save('Zishan-Ahamed-Thandar-Resume.pdf');
+    });
+  }
+
+  /* ============================================================
+     DOCX GENERATION (docx)
+  ============================================================ */
+  function genDOCX(data) {
+    return loadLib('https://cdn.jsdelivr.net/npm/docx@7.8.2/build/index.min.js').then(function () {
+      var D = window.docx;
+      var TextRun = D.TextRun, Paragraph = D.Paragraph, Hyper = D.ExternalHyperlink;
+      var align = D.AlignmentType;
+      var IND = '4F46E5', DARK = '111827', MUT = '6B7280';
+
+      function run(md) {
+        return runs(md).map(function (r) {
+          var opts = { text: r.t, bold: !!r.b, italics: !!r.i };
+          if (r.url) return new Hyper({ link: r.url, children: [new TextRun({ text: r.t, style: 'Hyperlink' })] });
+          return new TextRun(opts);
+        });
+      }
+      function para(md, opts) {
+        opts = opts || {};
+        return new Paragraph({ children: run(md), spacing: opts.spacing || { after: 90 } });
+      }
+      function heading(t) {
+        return new Paragraph({
+          children: [new TextRun({ text: t.toUpperCase(), bold: true, size: 23, color: IND, font: 'Poppins' })],
+          spacing: { before: 260, after: 130 }
+        });
+      }
+      function bulletLine(it) {
+        return new Paragraph({ children: run(it), bullet: { level: 0 }, spacing: { after: 60 } });
+      }
+      function entryPara(title, right, org, detail) {
+        var kids = run(title);
+        if (right) {
+          kids.push(new TextRun({ text: '    ' + right, italics: true, color: MUT }));
+        }
+        var out = [new Paragraph({ children: kids, spacing: { before: 120, after: 40 } })];
+        if (org) {
+          var ok = run(org);
+          if (detail) ok.push(new TextRun({ text: '  ' + detail, italics: true, color: MUT }));
+          out.push(new Paragraph({ children: ok, spacing: { after: 60 } }));
+        }
+        return out;
+      }
+
+      var children = [];
+      children.push(new Paragraph({ alignment: align.CENTER, children: [new TextRun({ text: data.header.name, bold: true, size: 34, font: 'Poppins', color: DARK })], spacing: { after: 60 } }));
+      if (data.header.role) children.push(new Paragraph({ alignment: align.CENTER, children: [new TextRun({ text: data.header.role, size: 21, color: IND })], spacing: { after: 120 } }));
+      if (data.header.contacts.length) {
+        var ckids = [];
+        data.header.contacts.forEach(function (c, idx) {
+          if (idx > 0) ckids.push(new TextRun({ text: '   ♦   ', color: MUT }));
+          ckids.push(new Hyper({ link: c.url || 'mailto:' + c.text, children: [new TextRun({ text: c.text, style: 'Hyperlink' })] }));
+        });
+        children.push(new Paragraph({ alignment: align.CENTER, children: ckids, spacing: { after: 160 } }));
+      }
+
+      data.sections.forEach(function (s) {
+        children.push(heading(s.title));
+        s.blocks.forEach(function (b) {
+          if (b.type === 'p') children.push(para(b.md, { spacing: { after: 130 } }));
+          else if (b.type === 'bullets') b.items.forEach(function (it) { children.push(bulletLine(it)); });
+          else if (b.type === 'entry' || b.type === 'project') {
+            var right = b.dates || b.tech;
+            children = children.concat(entryPara(b.title, right, b.org, b.detail));
+            b.items.forEach(function (it) { children.push(bulletLine(it)); });
+          }
+          else if (b.type === 'table') {
+            var rows = b.rows.map(function (row) {
+              return new D.TableRow({
+                children: row.map(function (cell) {
+                  var cBold = runs(cell)[0] && runs(cell)[0].b;
+                  return new D.TableCell({ children: [new Paragraph({ children: run(cell), spacing: { after: 30 } })] });
+                })
+              });
+            });
+            children.push(new D.Table({ rows: rows, width: { size: 100, type: D.WidthType.PERCENTAGE }, spacing: { after: 140 } }));
+          }
+        });
+        children.push(new Paragraph({ spacing: { after: 80 }, children: [] }));
+      });
+
+      var doc = new D.Document({ styles: { default: { document: { run: { font: 'Calibri', size: 21 } } } }, sections: [{ properties: {}, children: children }] });
+      return D.Packer.toBlob(doc).then(function (blob) {
+        var a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'Zishan-Ahamed-Thandar-Resume.docx';
+        document.body.appendChild(a); a.click();
+        setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 4000);
+      });
+    });
+  }
+
+  /* ============================================================
+     BOOTSTRAP PAGE
+  ============================================================ */
+  var data = null, dom = document.getElementById('resume-dom');
+
+  fetch('resume.tex', { cache: 'no-store' })
+    .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+    .then(function (tex) {
+      data = parseTex(tex);
+      render(data, dom);
+    })
+    .catch(function (err) {
+      dom.innerHTML = '<div style="color:#ef4444"><i class="fa-solid fa-triangle-exclamation"></i> Could not load resume.tex&nbsp;—&nbsp;' +
+        esc(err.message) + '</div>';
+    });
+
+  function busy(btn, on) {
+    btn.disabled = on;
+    btn.innerHTML = on
+      ? '<i class="fa-solid fa-spinner fa-spin"></i> Generating…'
+      : btn.dataset.orig;
+  }
+  var btnPDF = document.getElementById('btn-pdf');
+  var btnDOCX = document.getElementById('btn-docx');
+  btnPDF.dataset.orig = btnPDF.innerHTML;
+  btnDOCX.dataset.orig = btnDOCX.innerHTML;
+
+  btnPDF.addEventListener('click', function () {
+    if (!data) return alert('resume.tex is still loading');
+    busy(btnPDF, true);
+    genPDF(data).catch(function (e) { alert('PDF generation failed: ' + e.message); })
+      .finally(function () { busy(btnPDF, false); });
+  });
+  btnDOCX.addEventListener('click', function () {
+    if (!data) return alert('resume.tex is still loading');
+    busy(btnDOCX, true);
+    genDOCX(data).catch(function (e) { alert('DOCX generation failed: ' + e.message); })
+      .finally(function () { busy(btnDOCX, false); });
+  });
+})();
+</script>
+</body>
+</html>
