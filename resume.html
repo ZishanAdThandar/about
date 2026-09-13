@@ -502,7 +502,7 @@
     if (d.header.contacts.length) {
       h += '<div class="r-contacts">';
       d.header.contacts.forEach(function (c, idx) {
-        if (idx > 0) h += '<span class="sep">♦</span>';
+        if (idx > 0) h += '<span class="sep">|</span>';
         h += c.url ? '<a href="' + esc(c.url) + '" target="_blank" rel="noopener">' + esc(c.text) + '</a>'
                    : '<span>' + esc(c.text) + '</span>';
       });
@@ -557,7 +557,7 @@
         var CFG = {
           name: 16, role: 8.2, contact: 6.6, headRuleTop: 4,
           head: 9.0, headRule: 0.4, headRuleGap: 1, headGap: 2.2,
-          body: 6.85, lh: 1.165, bodyGap: 0.8,
+          body: 6.85, lh: 1.15, bodyGap: 0.72,
           entry: 7.25, sub: 6.75, right: 6.8, entryGap: 0.7,
           cell: 6.9, tableGap: 0.5
         };
@@ -606,7 +606,7 @@
         if (d.header.contacts.length) {
           var cks = [];
           d.header.contacts.forEach(function (c, i) {
-            if (i > 0) cks.push({ text: '  ' + String.fromCharCode(0x2666) + '  ', color: 'C7CBD1', fontSize: CFG.contact });
+            if (i > 0) cks.push({ text: '  |  ', color: 'C7CBD1', fontSize: CFG.contact });
             cks.push({ text: c.text, link: c.url || 'mailto:' + c.text, color: '6B7280', fontSize: CFG.contact });
           });
           content.push({ text: cks, alignment: 'center', fontSize: CFG.contact, margin: [0, 1, 0, 1] });
@@ -645,7 +645,7 @@
         });
         var dd = {
           pageSize: 'A4',
-          pageMargins: [38, 14, 38, 14],
+          pageMargins: [38, 11, 38, 11],
           defaultStyle: { font: 'Roboto' },
           content: content,
           pageBreakBefore: function (cur, fol) { return false; }
